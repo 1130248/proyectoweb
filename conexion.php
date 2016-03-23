@@ -29,7 +29,7 @@ $rowcount=mysqli_num_rows($result);
 if($rowcount==0){
 echo "ACCESO DENEGADO el usuario  y la contraseña no esta en la base de datos.";
 }elseif ($rowcount>=1) {
-	echo "Bienvenido eres ". $usuario." y tu contraseña es ".$contrasena."...!";
+//	echo "Bienvenido eres ". $usuario." y tu contraseña es ".$contrasena."...!";
 header("Location:encabezado2.php");
 }
 
