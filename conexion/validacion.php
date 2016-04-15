@@ -21,10 +21,10 @@ class validacion {
 		$conexionSacadatos = new Conexion();
 		$linkSacadatos = $conexionSacadatos->con();
 	//include ('config.php');
-
+//sfs
 
 		$consulta =  "SELECT * FROM usuarios WHERE usuario='$this->user' and contrasena='$this->contra'";
-		
+
 		$resultado = $linkSacadatos->query($consulta);
 
 		$fila = $resultado->fetch_row();
