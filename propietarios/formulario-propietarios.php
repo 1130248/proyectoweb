@@ -9,8 +9,8 @@ if (isset($_GET['id_prop'])){
 	$id=$_GET['id_prop'];
 
 	$mysqli->set_charset("utf8");
-
-$consulta = "SELECT * FROM propietarios where id=$id";
+	
+$consulta = "SELECT * FROM propietarios where id_propietario=$id";
 $resultado = $mysqli->query($consulta);
 $fila = $resultado->fetch_row();
 $s="";
@@ -34,21 +34,22 @@ $nunidades="";
 
 }
 
-include_once('actualizar_propietarios.php');
-if(isset($_POST["id"])){
-$insertando=new  NuevoRegistro($_POST["id"],$_POST["nombre"],$_POST["apellido"], $_POST["direccion"], $_POST["telefono"], $_POST["correo"], $_POST["unidades"]);
+include_once('actualizar-propietarios.php');
+
+if(isset($_POST["id_propietario"])){
+$insertando=new  NuevoRegistro($_POST["id_propietario"],$_POST["nombre"],$_POST["apellido"], $_POST["direccion"], $_POST["telefono"], $_POST["correo"], $_POST["nunidades"]);
 $insertando->actualiza();
 
 }
 
-elseif (isset($_POST["ids"])){
-$insertando=new  NuevoRegistro($_POST["ids"],$_POST["nombre"],$_POST["apellido"], $_POST["direccion"], $_POST["telefono"], $_POST["correo"], $_POST["unidades"]);
+elseif (isset($_POST["id_propietarios"])){
+$insertando=new  NuevoRegistro($_POST["ids"],$_POST["nombre"],$_POST["apellido"], $_POST["direccion"], $_POST["telefono"], $_POST["correo"], $_POST["nunidades"]);
 $insertando->inserta();
-
+	
 
 }elseif (isset($_GET["borrar"])){
 
-$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0);
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0,0,0);
 $insertando->borra();
 
 }else{  //header("Location: ejemplo2.php");
@@ -59,7 +60,7 @@ $insertando->borra();
 		<br>
 		<h1>Modificar datos</h1>
 		<br>
-		<form method="post" action="actualizar-propietarios.php">
+		<form method="post" action="#">
 			
 			<div class="formulario">
 		        <label>Nombre:  <input type="text" name="nombre" value="<?php echo $nombre_propietario?>" require=""></label>

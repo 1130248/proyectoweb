@@ -1,7 +1,8 @@
 <?php
 // CREANDO MI CONEXION
-include('../conexion/config.php');
-
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
 
 
 if (isset($_GET['id_cas'])){
@@ -12,6 +13,7 @@ if (isset($_GET['id_cas'])){
 $consulta = "SELECT * FROM castigos where id_castigo=$id_castigo";
 $resultado = $mysqli->query($consulta);
 $fila = $resultado->fetch_row();
+
 $s="";
 $id_castigo=$fila[0];
 $motivo=$fila[1];
@@ -20,10 +22,11 @@ $fecha=$fila[3];
 $dias=$fila[4];
 $inicio=$fila[5];
 $termina=$fila[6];
-$id_chofer=$fila[7];
-$id_checador=$fila[8];
+$chofer=$fila[7];
+$checador=$fila[8];
 
 }else{
+	
 $s="s";
 $id_castigo="";
 $motivo="";
@@ -37,13 +40,53 @@ $id_checador="";
 
 }
 
+include_once('actualizar.php');
+
+if(isset($_POST["id_castigo"])){
+$insertando=new  NuevoRegistro($_POST["id_castigo"],$_POST["motivo"],$_POST["lugar"], $_POST["fecha"], $_POST["dias"], $_POST["inicio"], $_POST["termina"], $_POST["id_chofer"], $_POST["id_checador"]);
+$insertando->actualiza();
+
+}
+
+elseif (isset($_POST["id_castigos"])){
+$insertando=new  NuevoRegistro($_POST["id_castigos"],$_POST["motivo"],$_POST["lugar"], $_POST["fecha"], $_POST["dias"], $_POST["inicio"], $_POST["termina"], $_POST["id_chofer"], $_POST["id_checador"]);
+$insertando->inserta();
+	
+
+}elseif (isset($_GET["borrar"])){
+
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0,0,0,0,0);
+$insertando->borra();
+
+}
+
+
 ?>
+
+<?php
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
+$consulta="SELECT * from choferes";
+$result= $mysqli->query($consulta);
+?>
+
+<?php
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
+$consulta="SELECT * from checadores";
+$resulta= $mysqli->query($consulta);
+?>
+
 <div class="form-registro_mas">
 		<br>
 		<h1>Modificar datos</h1>
 		<br>
 		
-		<form method="post" action="actualizar.php">
+		<form method="post" action="#">
 			
 			<div class="formulario">
 		        <label>Motivo:  <input type="text" name="motivo" value="<?php echo $motivo?>" require=""></label>
@@ -55,17 +98,25 @@ $id_checador="";
 				<label>Chofer:   <select>    
     <?php    
     while ( $row = $result->fetch_array() )    
-    {
-        ?>
+    { ?>
     
         <option value=" <?php echo $row['id_chofer'] ?> " >
         <?php echo $row['nombre_chofer']; ?>
         </option>
         
-        <?php
-    }    
-    ?>        </select></label><br><br><br>
-		        <label>Checador: <input type="text" name="checador" value="<?php echo $id_checador?>" required=""></label>
+        <?php } ?>        </select></label>
+
+		        
+		        <label>Checador:  <select>    
+    <?php    
+    while ( $row = $resulta->fetch_array() )    
+    { ?>
+    
+        <option value=" <?php echo $row['id_checador'] ?> " >
+        <?php echo $row['nombre_checador']; ?>
+        </option>
+        
+        <?php }  ?>        </select></label>
 
 		        <input type="hidden" name="id_castigo<?php echo $s;?>" value="<?php echo  $id_castigo;?>">
 		       

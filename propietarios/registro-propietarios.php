@@ -37,9 +37,21 @@ $resultado = $mysqli->query($consulta);
 		      <td>".$fila[3]."</td>
 		      <td>".$fila[4]."</td>
 		      <td>".$fila[5]."</td>
-		      <td>".$fila[6]."</td>
-		      <td><center>
-			  <a href=plantilla-actualizar-propietarios.php?id_prop=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=actualizar-propietarios.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
+
+
+
+		      <td>"; 
+$consulta2 = "SELECT unidades.numero_unidad FROM unidades WHERE unidades.id_propietario=".$fila[0]."";
+$resultado2 = $mysqli->query($consulta2);
+	while ($fila2 = $resultado2->fetch_row()) { 
+		      echo $fila2[0];
+		      echo " - ";}
+
+		      echo "</td>
+
+		    <td><center>
+
+			  <a href=plantilla-actualizar-propietarios.php?id_prop=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=plantilla-actualizar-propietarios.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
 </center></td>";
 		echo "</tr>";
 

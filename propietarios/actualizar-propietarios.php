@@ -34,20 +34,20 @@ function __construct($id, $nombre, $apellido, $direccion, $telefono, $correo, $u
 public function actualiza(){
 
 	$conexionSacadatos = new Conexion();
-    $linkSacadatos = $conexionSacadatos->con();		
+    $linkSacadatos = $conexionSacadatos->con();	
+
+
 
 /*if(isset($_POST["id_propietario"])){
 	$id_prop=$_POST["id_propietario"];*/
 
-		$consulta = "UPDATE propietarios SET nombre='$this->nombre', apellido='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo',unidades='$this->unidades'
-			where id=$this->id";
+		$consulta = "UPDATE propietarios SET nombre_propietario='$this->nombre', apellido_propietario='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo', nunidades='$this->unidades' where id_propietario='$this->id'";
 
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla-propietarios.php");
 											}
 			else{
-				/*echo "jajaja";*/
-				  header("Location: ../plantilla/noplantilla-principal.php");
+			 header("Location: ../plantilla/noplantilla-principal.php");
 				}
 }
 
@@ -74,12 +74,13 @@ public function borra(){
 /*}elseif (isset($_GET["borrar"])){
 	$id_prop=$_GET["borrar"];*/
 
-	$consulta = "DELETE from propietarios where id=$this->id";
+	$consulta = "DELETE from propietarios where id_propietario='$this->id'";
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla-propietarios.php");
 											}
 			else{
-				header("Location: ../plantilla/noplantilla-principal.php");
+				
+			header("Location: ../plantilla/noplantilla-principal.php");
 				}
 
  }

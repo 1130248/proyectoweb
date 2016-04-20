@@ -1,7 +1,9 @@
 <?php
 // CREANDO MI CONEXION
-include('../conexion/config.php');
+include_once('../conexion/config.php');
 
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
 
 
 if (isset($_GET['id_chof'])){
@@ -24,6 +26,7 @@ $licencia_tipo=$fila[6];
 $licencia_venc=$fila[7];
 
 }else{
+
 $s="s";
 $id_chofer="";
 $nombre_chofer="";
@@ -32,17 +35,37 @@ $direccion="";
 $telefono="";
 $correo="";
 $licencia_tipo="";
-$licencia_tipo="";
+$licencia_venc="";
+
+}
+
+include_once('actualizar.php');
+
+if(isset($_POST["id_chofer"])){
+$insertando=new  NuevoRegistro($_POST["id_chofer"],$_POST["nombre"],$_POST["apellido"], $_POST["direccion"], $_POST["telefono"],$_POST["correo"],$_POST["licencia"], $_POST["vencimiento"]);
+$insertando->actualiza();
+
+}
+
+elseif (isset($_POST["id_chofers"])){
+$insertando=new  NuevoRegistro($_POST["id_chofers"],$_POST["nombre"],$_POST["apellido"], $_POST["direccion"], $_POST["telefono"],$_POST["correo"],$_POST["licencia"], $_POST["vencimiento"]);
+$insertando->inserta();
+	
+
+}elseif (isset($_GET["borrar"])){
+
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0,0,0,0);
+$insertando->borra();
 
 }
 
 ?>
 <div class="form-registro_mas">
 		<br>
-		<h1>Modificar datos</h1>
+		<h1>*>>>> Datos <<<<*</h1>
 		<br>
 		<br>
-		<form method="post" action="actualizar.php">
+		<form method="post" action="#">
 			
 			<div class="formulario">
 		        <label>Nombre:  <input type="text" name="nombre" value="<?php echo $nombre_chofer?>" require=""></label>

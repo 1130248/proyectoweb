@@ -1,7 +1,8 @@
 <?php
 // CREANDO MI CONEXION
-include('../conexion/config.php');
-
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
 
 
 if (isset($_GET['id_asam'])){
@@ -12,6 +13,7 @@ if (isset($_GET['id_asam'])){
 $consulta = "SELECT * FROM asambleas where id_asamblea=$id_asamblea";
 $resultado = $mysqli->query($consulta);
 $fila = $resultado->fetch_row();
+
 $s="";
 $id_asamblea=$fila[0];
 $fecha_asamblea=$fila[1];
@@ -21,6 +23,7 @@ $nacuerdos=$fila[4];
 
 
 }else{
+
 $s="s";
 $id_asamblea="";
 $fecha_asamblea="";
@@ -30,19 +33,41 @@ $nacuerdos="";
 
 }
 
+
+include_once('actualizar.php');
+
+if(isset($_POST["id_asamblea"])){
+$insertando=new  NuevoRegistro($_POST["id_asamblea"],$_POST["fecha"],$_POST["lugar"], $_POST["asistencia"], $_POST["acuerdos"]);
+$insertando->actualiza();
+
+}
+
+if(isset($_POST["id_asambleas"])){
+$insertando=new  NuevoRegistro($_POST["id_asambleas"],$_POST["fecha"],$_POST["lugar"], $_POST["asistencia"], $_POST["acuerdos"]);
+$insertando->inserta();
+	
+
+}elseif (isset($_GET["borrar"])){
+
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0);
+$insertando->borra();
+
+}
 ?>
+
+
 <div class="form-registro">
 		<br>
 		<h1>Modificar datos</h1>
 		<br>
 		
-		<form method="post" action="actualizar.php">
+		<form method="post" action="#">
 			
 			<div class="formulario">
-		        <label>Fecha:  <input type="calendar" name="fecha" value="<?php echo $fecha_asamblea?>" require=""></label>
+		        <label>Fecha:  <input type="date" name="fecha" value="<?php echo $fecha_asamblea?>" require=""></label>
 		        <label>Lugar:  <input type="text" name="lugar" value="<?php echo  $lugar_asamblea?>" require=""></label>
 		        <label>Asistencia: <input type="number" name="asistencia" value="<?php echo $asistencia?>" required=""></label>
-		        <label>No. Acuerdos:  <input type="number" name="nacuerdos" value="<?php echo $nacuerdos?>" required=""></label>
+		        <label>No. Acuerdos:  <input type="number" name="acuerdos" value="<?php echo $nacuerdos?>" required=""></label>
 		        
 		        <input type="hidden" name="id_asamblea<?php echo $s;?>" value="<?php echo  $id_asamblea;?>">
 		       

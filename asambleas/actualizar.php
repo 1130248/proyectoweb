@@ -2,13 +2,27 @@
 
 // CREANDO MI CONEXION
 
-include('../conexion/config.php');
+include_once('../conexion/config.php');
 
-$fecha=$_POST["fecha"];
-$lugar=$_POST["lugar"];
-$asistencia=$_POST["asistencia"];
-$nacuerdos=$_POST["nacuerdos"];
+/**
+* 
+*/
+class NuevoRegistro extends Conexion{
 
+public $id_asamblea;
+public $fecha;
+public $lugar;
+public $asistencia;
+public $acuerdos;
+
+function __construct($id_asamblea,$fecha, $lugar, $asistencia, $acuerdos){
+
+$this->id_asamblea=$id_asamblea;
+$this->fecha=$fecha;
+$this->lugar=$lugar;
+$this->asistencia=$asistencia;
+$this->acuerdos=$acuerdos;
+}
 /*echo $nombre;
 echo $apellido;
 echo $direccion;
@@ -16,14 +30,17 @@ echo $telefono;
 echo $correo;
 echo $unidades;*/
 
-if(isset($_POST["id_asamblea"])){
-	$id_asam=$_POST["id_asamblea"];
+/*if(isset($_POST["id_asamblea"])){
+	$id_asam=$_POST["id_asamblea"];*/
 
-		$consulta = "UPDATE asambleas SET id_asamblea='$id_asam', fecha_asamblea='$fecha', lugar_asamblea='$lugar', asistencia='$asistencia', nacuerdos='$nacuerdos'
+	public function actualiza(){
 
-			where id_asamblea=$id_asam";
+    $conexionSacadatos = new Conexion();
+    $linkSacadatos = $conexionSacadatos->con();
 
-			if ($mysqli->query($consulta)){
+		$consulta = "UPDATE asambleas SET fecha_asamblea='$this->fecha', lugar_asamblea='$this->lugar', asistencia='$this->asistencia', nacuerdos='$this->acuerdos' where id_asamblea=$this->id_asamblea";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
 			else{
@@ -33,26 +50,44 @@ if(isset($_POST["id_asamblea"])){
 					}
 
 
+	public function inserta(){
 
-elseif (isset($_POST["fecha"])){
-	$fecha=$_POST["fecha"];
-		$consulta = "INSERT into asambleas values('', '$fecha', '$lugar', '$asistencia', '$nacuerdos'";
-			if ($mysqli->query($consulta)){
+/*elseif (isset($_POST["fecha"])){
+	$fecha=$_POST["fecha"];*/
+
+		$conexionSacadatos = new Conexion();
+   		$linkSacadatos = $conexionSacadatos->con();
+
+		$consulta = "INSERT into asambleas values('', '$this->fecha', '$this->lugar', '$this->asistencia', '$this->acuerdos'";
+
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
 			else{
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
+	}
 
-}elseif (isset($_GET["borrar"])){
-	$id_asam=$_GET["borrar"];
+/*}elseif (isset($_GET["borrar"])){
+	$id_asam=$_GET["borrar"];*/
 
-	$consulta = "DELETE from asambleas where id_asamblea=$id_asam ";
-			if ($mysqli->query($consulta)){
+	public function borra(){
+
+		$conexionSacadatos = new Conexion();
+   		$linkSacadatos = $conexionSacadatos->con();
+
+	$consulta = "DELETE from asambleas where id_asamblea=$this->id_asamblea ";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
-											}
-			else{
+											
+			}else{
+
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
-}else{ header("Location: plantilla.php"); }
+	}
+
+}
+
 ?>

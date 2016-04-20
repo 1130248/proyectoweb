@@ -2,18 +2,8 @@
 
 <?php
 
-// mi conexion
+include_once('../conexion/config.php');
 
-$mysqli = new mysqli("localhost","root", "", "routesystem23");
-
-/*Comprobar la conexion*/
-
-if (mysqli_connect_errno()) {
-	printf("Fallo la conexion: %s\n", mysqli_connect_error());
-exit();
-
-}
-//$mysqli->set_charset("utf8");
 $estilo="prop";
 
 echo "<table id=".$estilo." border=0>";
@@ -28,10 +18,11 @@ echo "<th>Id</th>
 	  <th>Termina</th>
 	  <th>Chofer</th>
 	  <th>Checador</th>
-	  <th>Checador</th>";
+	  <th>Opciones</th>";
 echo "</tr>";
 
-
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
 
 $consulta = "SELECT * FROM castigos";
 $resultado = $mysqli->query($consulta);
@@ -51,7 +42,7 @@ $resultado = $mysqli->query($consulta);
 		      <td>".$fila[8]."</td>
 
 		      <td><center>
-			  <a href=plantilla-actualizar.php?id_cas=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=actualizar.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
+			  <a href=plantilla-actualizar.php?id_cas=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=plantilla-actualizar.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
 </center></td>";
 		echo "</tr>";
 

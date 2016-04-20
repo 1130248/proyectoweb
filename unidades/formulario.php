@@ -1,7 +1,8 @@
 <?php
 // CREANDO MI CONEXION
-include('../conexion/config.php');
-
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
 
 
 if (isset($_GET['placa'])){
@@ -37,31 +38,62 @@ $id_chofer="";
 
 }
 
+include_once('actualizar.php');
+
+if(isset($_POST["placa_unidad"])){
+$insertando=new  NuevoRegistro($_POST["placa_unidad"],$_POST["unidad"],$_POST["matricula"], $_POST["modelo"], $_POST["marca"],$_POST["seguro"],$_POST["id_propietario"], $_POST["id_chofer"]);
+$insertando->actualiza();
+
+}
+
+elseif (isset($_POST["placa_unidads"])){
+$insertando=new  NuevoRegistro($_POST["placa_unidads"],$_POST["unidad"],$_POST["matricula"], $_POST["modelo"], $_POST["marca"],$_POST["seguro"],$_POST["id_propietario"], $_POST["id_chofer"]);
+$insertando->inserta();
+	
+
+}elseif (isset($_GET["borrar"])){
+
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0);
+$insertando->borra();
+
+}
+
 ?>
 
+<?php
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
+$consulta="SELECT * from propietarios";
+$result= $mysqli->query($consulta);
+?>
+
+<?php
+include_once('../conexion/config.php');
+$conexionSacadatos = new Conexion();
+$mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
+$consulta="SELECT * from choferes";
+$resulta= $mysqli->query($consulta);
+?>
 
 <div class="form-registro_mas">
 		<br>
-		<h1>Modificar datos</h1>
+		<h1>*>>>> Datos <<<<*</h1>
 		<br>
 		<br>
-		<form method="post" action="actualizar.php">
+		<form method="post" action="#">
 			
 			<div class="formulario">
 
 				<label>Placa:  <input type="text" name="placa" value="<?php echo $placa_unidad?>" require=""></label>
-				<label>Unidad No.: <input type="number" name="unidadn" value="<?php echo $numero_unidad?>" required=""></label>
+				<label>Unidad No.: <input type="number" name="unidad" value="<?php echo $numero_unidad?>" required=""></label>
 		        <label>Matricula:  <input type="text" name="matricula" value="<?php echo $matricula_unidad?>" require=""></label>
 		        <label>Modelo:  <input type="text" name="modelo" value="<?php echo  $modelo_unidad?>" require=""></label>
 		        <label>Marca: <input type="text" name="marca" value="<?php echo $marca_unidad?>" required=""></label>
-		        <label>Venc. Póliza:  <input type="date" name="vencimiento_seguro" value="<?php echo $vencseguro_unidad?>" required=""></label>
-		    <?php
-		    include('../conexion/config.php');
-		    $mysqli->set_charset("utf8");
-		    $consulta="SELECT * from propietarios";
-		    $result= $mysqli->query($consulta);
-		    ?>
-
+		        <label>Venc. Póliza:  <input type="date" name="seguro" value="<?php echo $vencseguro_unidad?>" required=""></label>
+		   
 		        <label>Propietario:   <select>    
     <?php    
     while ($row = $result->fetch_array()){
@@ -73,17 +105,9 @@ $id_chofer="";
     }    
     ?>       	</select></label>
 
-
-            <?php
-            include('../conexion/config.php');
-            $mysqli->set_charset("utf8");
-            $consulta="SELECT * from choferes";
-            $result= $mysqli->query($consulta);
-            ?>
-
 		        <label>Chofer: <select>    
     <?php    
-    while ($row = $result->fetch_array()){
+    while ($row = $resulta->fetch_array()){
         ?>
     
         <option value=" <?php echo $row['id_chofer'] ?> " >

@@ -2,31 +2,46 @@
 
 // CREANDO MI CONEXION
 
-include('../conexion/config.php');
+include_once('../conexion/config.php');
 
-$motivo=$_POST["motivo"];
-$lugar=$_POST["lugar"];
-$fecha=$_POST["fecha"];
-$dias=$_POST["dias"];
-$inicio=$_POST["inicio"];
-$termina=$_POST["termina"];
-$chofer=$_POST["chofer"];
-$checador=$_POST["checador"];
+class NuevoRegistro extends Conexion{
 
-/*echo $nombre;
-echo $apellido;
-echo $direccion;
-echo $telefono;
-echo $correo;
-echo $unidades;*/
 
-if(isset($_POST["id_castigo"])){
-	$id_cas=$_POST["id_castigo"];
+public $id_castigo;
+public $motivo;
+public $lugar;
+public $fecha;
+public $dias;
+public $inicio;
+public $termina;
+public $id_chofer;
+public $id_checador;
 
-		$consulta = "UPDATE castigos SET id_castigo='$id_cas', motivo='$motivo', lugar='$lugar', fecha='$fecha', dias='$dias',inicio='$inicio',termina='$termina',id_chofer='$chofer',id_checador='$checador'
-			where id_castigo=$id_cas";
+function __construct($id_castigo, $motivo, $lugar, $fecha, $dias, $inicio, $termina, $id_chofer, $id_checador){
 
-			if ($mysqli->query($consulta)){
+$this->id_castigo=$id_castigo;
+$this->motivo=$motivo;
+$this->lugar=$lugar;
+$this->fecha=$fecha;
+$this->dias=$dias;
+$this->inicio=$inicio;
+$this->termina=$termina;
+$this->id_chofer=$id_chofer;
+$this->id_checador=$id_checador;
+}
+
+
+	public function actualiza(){
+
+	$conexionSacadatos = new Conexion();
+    $linkSacadatos = $conexionSacadatos->con();	
+
+/*if(isset($_POST["id_castigo"])){
+	$id_cas=$_POST["id_castigo"];*/
+
+		$consulta = "UPDATE castigos SET motivo='$this->motivo', lugar='$this->lugar', fecha='$this->fecha', dias='$this->dias', inicio='$this->inicio', termina='$this->termina', id_chofer='$this->id_chofer', id_checador='$this->id_checador' where id_castigo=$this->id_castigo";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
 			else{
@@ -37,25 +52,40 @@ if(isset($_POST["id_castigo"])){
 
 
 
-elseif (isset($_POST["motivo"])){
-	$motivo=$_POST["motivo"];
-		$consulta = "INSERT into castigos values('', '$motivo', '$lugar', '$fecha', '$dias', '$inicio', '$termina', '$chofer', '$checador') ";
-			if ($mysqli->query($consulta)){
+/*elseif (isset($_POST["motivo"])){
+	$motivo=$_POST["motivo"];*/
+
+	 public function inserta(){
+
+
+	    $conexionSacadatos = new Conexion();
+   		$linkSacadatos = $conexionSacadatos->con();
+
+		$consulta = "INSERT into castigos values('', '$this->motivo', '$this->lugar', '$this->fecha', '$this->dias', '$this->inicio', '$this->termina', '$this->id_chofer', '$this->id_checador') ";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
 			else{
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
+	}
 
-}elseif (isset($_GET["borrar"])){
-	$id_cas=$_GET["borrar"];
+/*}elseif (isset($_GET["borrar"])){
+	$id_cas=$_GET["borrar"];*/
+	public function borra(){
 
-	$consulta = "DELETE from castigos where id_castigo=$id_cas";
-			if ($mysqli->query($consulta)){
+		$conexionSacadatos = new Conexion();
+   		$linkSacadatos = $conexionSacadatos->con();
+
+
+	$consulta = "DELETE from castigos where id_castigo='$this->id_castigo'";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
-											}
-			else{
+			}else{
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
-}else{ header("Location: plantilla.php"); }
+	}
+}
 ?>

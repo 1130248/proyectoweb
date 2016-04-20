@@ -2,18 +2,34 @@
 
 // CREANDO MI CONEXION
 
-include('../conexion/config.php');
+include_once('../conexion/config.php');
 
-$nombre=$_POST["nombre"];
-$apellido=$_POST["apellido"];
-$direccion=$_POST["direccion"];
-$telefono=$_POST["telefono"];
-$correo=$_POST["correo"];
-$estacion=$_POST["estacion"];
-$hora_entrada=$_POST["entrada"];
-$hora_salida=$_POST["salida"];
-$ddescanso=$_POST["descanso"];
+class NuevoRegistro extends Conexion{
 
+public $id_checador;
+public $nombre;
+public $apellido;
+public $direccion;
+public $telefono;
+public $correo;
+public $estacion;
+public $entrada;
+public $salida;
+public $descanso;
+
+function __construct($id_checador,$nombre,$apellido,$direccion,$telefono,$correo,$estacion,$entrada,$salida,$descanso){
+
+$this->id_checador=$id_checador;
+$this->nombre=$nombre;
+$this->apellido=$apellido;
+$this->direccion=$direccion;
+$this->telefono=$telefono;
+$this->correo=$correo;
+$this->estacion=$estacion;
+$this->entrada=$entrada;
+$this->salida=$salida;
+$this->descanso=$descanso;
+}
 /*echo $nombre;
 echo $apellido;
 echo $direccion;
@@ -21,14 +37,18 @@ echo $telefono;
 echo $correo;
 echo $unidades;*/
 
-if(isset($_POST["id_checador"])){
-	$id_checa=$_POST["id_checador"];
+/*if(isset($_POST["id_checador"])){
+	$id_checa=$_POST["id_checador"];*/
 
-		$consulta = "UPDATE checadores SET id_checador='$id_checa', nombre_checador='$nombre', apellido_checador='$apellido', direccion='$direccion', telefono='$telefono',correo='$correo',estacion='$estacion', hora_entrada='$hora_entrada', hora_salida='$hora_salida',ddescanso='$ddescanso'			
+	public function actualiza(){
 
-		where id_checador=$id_checa";
+		$conexionSacadatos = new Conexion();
+    	$linkSacadatos = $conexionSacadatos->con();
 
-			if ($mysqli->query($consulta)){
+
+		$consulta = "UPDATE checadores SET nombre_checador='$this->nombre', apellido_checador='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo',estacion='$this->estacion', hora_entrada='$this->entrada', hora_salida='$this->salida',ddescanso='$this->descanso'	where id_checador=$this->id_checador";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
 			else{
@@ -39,25 +59,45 @@ if(isset($_POST["id_checador"])){
 
 
 
-elseif (isset($_POST["nombre"])){
-	$nombre=$_POST["nombre"];
-		$consulta = "INSERT into checadores values('', '$nombre', '$apellido', '$direccion', '$telefono', '$correo', '$estacion', '$entrada', '$salida', '$descanso') ";
-			if ($mysqli->query($consulta)){
+/*elseif (isset($_POST["nombre"])){
+	$nombre=$_POST["nombre"];*/
+
+	public function inserta(){
+
+		$conexionSacadatos = new Conexion();
+   		$linkSacadatos = $conexionSacadatos->con();
+
+
+		$consulta = "INSERT into checadores values('', '$this->nombre', '$this->apellido', '$this->direccion', '$this->telefono', '$this->correo', '$this->estacion', '$this->entrada', '$this->salida', '$this->descanso') ";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
 			else{
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
+	}
 
-}elseif (isset($_GET["borrar"])){
-	$id_checa=$_GET["borrar"];
 
-	$consulta = "DELETE from checadores where id_checador=$id_checa";
-			if ($mysqli->query($consulta)){
+/*}elseif (isset($_GET["borrar"])){
+	$id_checa=$_GET["borrar"];*/
+
+	public function borra(){
+
+		$conexionSacadatos = new Conexion();
+   		$linkSacadatos = $conexionSacadatos->con();
+
+	$consulta = "DELETE from checadores where id_checador='$this->id_checador'";
+
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
-											}
-			else{
+			
+			}else{
+
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
-}else{ header("Location: plantilla.php"); }
+ 	}
+
+}
+
 ?>
