@@ -12,6 +12,7 @@
                <a href="../asambleas/plantilla.php" class="boton colorBoton formaBoton"> Asambleas</a>
                <a href="../acuerdos/plantilla.php" class="boton colorBoton formaBoton"> Acuerdos</a>
                <a href="../asistencias/plantilla.php" class="boton colorBoton formaBoton">Asistencias</a>
+               <a href="../graficas/plantilla_grafica.php" class="boton colorBoton formaBoton">Graficas</a>
                
             </div>
 		

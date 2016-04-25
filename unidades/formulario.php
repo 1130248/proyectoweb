@@ -11,8 +11,8 @@ if (isset($_GET['placa'])){
 	$mysqli->set_charset("utf8");
 
 $consulta = "SELECT * FROM unidades where placa_unidad=$placa_unidad";
-$resultado = $mysqli->query($consulta);
 
+$resultado = $mysqli->query($consulta);
 $fila = $resultado->fetch_row();
 
 $s="";
@@ -53,7 +53,7 @@ $insertando->inserta();
 
 }elseif (isset($_GET["borrar"])){
 
-$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0);
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0,0,0,0);
 $insertando->borra();
 
 }
@@ -87,7 +87,7 @@ $resulta= $mysqli->query($consulta);
 			
 			<div class="formulario">
 
-				<label>Placa:  <input type="text" name="placa" value="<?php echo $placa_unidad?>" require=""></label>
+				<label>Placa:  <input type="text" name="placa_unidad" value="<?php echo $placa_unidad?>" require=""></label>
 				<label>Unidad No.: <input type="number" name="unidad" value="<?php echo $numero_unidad?>" required=""></label>
 		        <label>Matricula:  <input type="text" name="matricula" value="<?php echo $matricula_unidad?>" require=""></label>
 		        <label>Modelo:  <input type="text" name="modelo" value="<?php echo  $modelo_unidad?>" require=""></label>

@@ -21,9 +21,9 @@ echo "</tr>";
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
-$id=$_GET["id_asam"];
+/*$id=$_GET["id_asam"];*/
 
-$consulta = "SELECT * FROM acuerdos where id_asamblea=$id";
+$consulta = "SELECT * FROM acuerdos";
 $resultado = $mysqli->query($consulta);
 
 

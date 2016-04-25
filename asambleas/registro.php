@@ -29,8 +29,9 @@ $resultado = $mysqli->query($consulta);
 		echo "<td>".$fila[0]."</td>
 		      <td>".$fila[1]."</td>
 		      <td>".$fila[2]."</td>
-		      <td>".$fila[3]."</td>
-		      <td><a href=../acuerdos/plantilla.php?id_asam=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></td>
+		      <td><center><a href=../acuerdos/plantilla.php?id_ac=".$fila[0]."><img src=../imagenes/asistencia.png width=35 height=35 /></center></td>
+
+		      <td><center><a href=../acuerdos/plantilla.php?id_ac=".$fila[0]."><img src=../imagenes/acuerdo.png width=35 height=35 /></center></td>
 	
 		      <td><center>
 			  <a href=plantilla-actualizar.php?id_asam=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=plantilla-actualizar.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>

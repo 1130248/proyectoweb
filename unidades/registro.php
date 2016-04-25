@@ -14,7 +14,7 @@ echo "<th> Placa </th>
 	  <th> Matrícula </th>
 	  <th> Modelo </th>
 	  <th> Marca </th>
-	  <th> Póliza/Vencimiento </th>
+	  <th> Póliza/Venc </th>
 	  <th> Propietario </th>
 	  <th> Chofer </th>
 	  <th> Opciones </th>";

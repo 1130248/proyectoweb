@@ -42,8 +42,8 @@ $this->id_chofer=$id_chofer;
     $conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();
 
-		$consulta = "UPDATE usuarios SET numero_unidad='$this->unidad', matricula_unidad='$this->matricula', modelo_unidad='$this->modelo', marca_unidad='$this->marca',vencseguro_unidad='$this->seguro',id_propietario='$this->id_propietario',id_chofer='$this->id_chofer'
-			where placa_unidad=$this->placa_unidad";
+		$consulta = "UPDATE unidades SET placa_unidad='this->placa_unidad',numero_unidad='$this->unidad', matricula_unidad='$this->matricula', modelo_unidad='$this->modelo', marca_unidad='$this->marca',vencseguro_unidad='$this->seguro',id_propietario='$this->id_propietario',id_chofer='$this->id_chofer'
+			where placa_unidad='$this->placa_unidad'";
 
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
@@ -83,7 +83,7 @@ public function borra(){
 
 
 	$consulta = "DELETE from unidades where placa_unidad=$this->placa_unidad";
-			if ($mysqli->query($consulta)){
+			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 
 				}else{

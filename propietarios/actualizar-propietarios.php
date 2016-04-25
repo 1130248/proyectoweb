@@ -20,7 +20,7 @@ echo $telefono;
 echo $correo;
 echo $unidades;*/
 
-function __construct($id, $nombre, $apellido, $direccion, $telefono, $correo, $unidades){
+function __construct($id, $nombre, $apellido, $direccion, $telefono, $correo){
 
 	$this->id=$id;
 	$this->nombre=$nombre;
@@ -28,7 +28,7 @@ function __construct($id, $nombre, $apellido, $direccion, $telefono, $correo, $u
     $this->direccion=$direccion;
     $this->telefono=$telefono;
     $this->correo=$correo;
-    $this->unidades=$unidades;
+  
 }
 
 public function actualiza(){
@@ -41,7 +41,7 @@ public function actualiza(){
 /*if(isset($_POST["id_propietario"])){
 	$id_prop=$_POST["id_propietario"];*/
 
-		$consulta = "UPDATE propietarios SET nombre_propietario='$this->nombre', apellido_propietario='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo', nunidades='$this->unidades' where id_propietario='$this->id'";
+		$consulta = "UPDATE propietarios SET nombre_propietario='$this->nombre', apellido_propietario='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo' where id_propietario='$this->id'";
 
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla-propietarios.php");
@@ -58,7 +58,7 @@ public function actualiza(){
 	$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
 
-		$consulta = "INSERT into propietarios values('', '$this->nombre', '$this->apellido', '$this->direccion', '$this->telefono', '$this->correo', '$this->unidades') ";
+		$consulta = "INSERT into propietarios values('', '$this->nombre', '$this->apellido', '$this->direccion', '$this->telefono', '$this->correo') ";
 
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla-propietarios.php");
