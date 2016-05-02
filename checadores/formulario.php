@@ -80,8 +80,18 @@ $insertando->borra();
 		        <label>Estación: <input type="text" name="estacion" value="<?php echo $estacion?>" required=""></label>
 		        <label>Entrada:  <input type="time" name="entrada" value="<?php echo $hora_entrada?>" required=""></label>
 		        <label>Salida:   <input type="time" name="salida" value="<?php echo $hora_salida?>" required=""></label>
-		        <label>Dia descanso: <input type="text" name="descanso" value="<?php echo $ddescanso?>" required=""></label>
-
+		       
+		        <label>Dia descanso: <select require="" name="descanso">
+				<option  value=""  >Selecciona </option>
+				<option  value="Domingo"  >Domingo </option>
+				<option  value="Lunes"  >Lunes </option>
+				<option  value="Martes"  >Martes </option>
+				<option  value="Miercoles"  >Miercoles </option>
+				<option  value="Jueves"  >Jueves </option>
+				<option  value="Viernes"  >Viernes </option>
+				<option  value="Sabado"  >Sabado </option>
+			</select>
+		</label>
 
 		        <input type="hidden" name="id_checador<?php echo $s;?>" value="<?php echo  $id_checador;?>">
 		       

@@ -95,7 +95,7 @@ $resulta= $mysqli->query($consulta);
 		        <label>No. días:  <input type="number" name="dias" value="<?php echo $dias?>" required=""></label>
 		        <label>Fecha inicio:   <input type="date" name="inicio" value="<?php echo $inicio?>" required=""></label>
 		        <label>Fecha termina: <input type="date" name="termina" value="<?php echo $termina?>" required=""></label>
-				<label>Chofer:   <select>    
+				<label>Chofer:   <select require="" name="id_chofer">    
     <?php    
     while ( $row = $result->fetch_array() )    
     { ?>
@@ -107,7 +107,7 @@ $resulta= $mysqli->query($consulta);
         <?php } ?>        </select></label>
 
 		        
-		        <label>Checador:  <select>    
+		        <label>Checador:  <select require="" name="id_checador">    
     <?php    
     while ( $row = $resulta->fetch_array() )    
     { ?>

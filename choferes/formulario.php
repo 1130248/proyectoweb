@@ -73,7 +73,14 @@ $insertando->borra();
 		        <label>Dirección: <input type="text" name="direccion" value="<?php echo $direccion?>" required=""></label>
 		        <label>Telefono:  <input type="text" name="telefono" value="<?php echo $telefono?>" required=""></label>
 		        <label>Correo:   <input type="text" name="correo" value="<?php echo $correo?>" required=""></label>
-		        <label>Licencia: <input type="text" name="licencia" value="<?php echo $licencia_tipo?>" required=""></label>
+
+		 
+		        <label> Licencia: <select require="" name="licencia">
+				<option  value=""  >Selecciona </option>
+				<option  value="Chofer"  >Chofer </option>
+				<option  value="Operador"  >Operador </option>
+			</select>
+		</label>
 		        <label>Vencimiento: <input type="date" name="vencimiento" value="<?php echo $licencia_venc?>" required=""></label>
 		        <input type="hidden" name="id_chofer<?php echo $s;?>" value="<?php echo  $id_chofer;?>">
 		       

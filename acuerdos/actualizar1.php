@@ -35,7 +35,7 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 		$consulta = "UPDATE acuerdos SET num_acuerdo='$this->acuerdo', detalle_acuerdo='$this->detalle', id_asamblea=$this->id_asamblea where id_acuerdo=$this->id_acuerdo";
 //echo $consulta;
 			if ($linkSacadatos->query($consulta)){
-				header("Location: plantilla.php");
+				header("Location: plantilla.php?id_ac=$this->id_asamblea");
 											}
 			else{
 				/*echo "jajaja";*/
@@ -54,7 +54,7 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 		$consulta = "INSERT into acuerdos values('', '$this->acuerdo', '$this->detalle', '$this->id_asamblea') ";
 	//	echo $consulta;	
 			if ($linkSacadatos->query($consulta)){
-			header("Location: plantilla.php");
+			header("Location: plantilla.php?id_ac=$this->id_asamblea");
 											}
 			else{
 			header("Location: ../plantilla/noplantilla-principal.php");
@@ -70,7 +70,7 @@ public function borra(){
 //echo $consulta;
 			if ($linkSacadatos->query($consulta)){
 
-	header("Location: plantilla.php");
+	header("Location: plantilla.php?id_ac=$this->id_asamblea");
 				
 			}else{
 				

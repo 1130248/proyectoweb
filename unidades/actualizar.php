@@ -14,6 +14,7 @@ public $marca;
 public $seguro;
 public $id_propietario;
 public $id_chofer;
+public $placa ;
 /*echo $nombre;
 echo $apellido;
 echo $direccion;
@@ -21,7 +22,7 @@ echo $telefono;
 echo $correo;
 echo $unidades;*/
 
-function __construct($placa_unidad,$unidad,$matricula,$modelo,$marca,$seguro,$id_propietario,$id_chofer){
+function __construct($placa_unidad,$unidad,$matricula,$modelo,$marca,$seguro,$id_propietario,$id_chofer,$placa){
 
 $this->placa_unidad=$placa_unidad;
 $this->unidad=$unidad;
@@ -31,7 +32,7 @@ $this->marca=$marca;
 $this->seguro=$seguro;
 $this->id_propietario=$id_propietario;
 $this->id_chofer=$id_chofer;
-
+$this->placa=$placa;
 }
 
 /*if(isset($_POST["placa_unidad"])){
@@ -42,9 +43,9 @@ $this->id_chofer=$id_chofer;
     $conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();
 
-		$consulta = "UPDATE unidades SET placa_unidad='this->placa_unidad',numero_unidad='$this->unidad', matricula_unidad='$this->matricula', modelo_unidad='$this->modelo', marca_unidad='$this->marca',vencseguro_unidad='$this->seguro',id_propietario='$this->id_propietario',id_chofer='$this->id_chofer'
-			where placa_unidad='$this->placa_unidad'";
-
+		$consulta = "UPDATE unidades SET placa_unidad='$this->placa_unidad', numero_unidad='$this->unidad', matricula_unidad='$this->matricula', modelo_unidad='$this->modelo', marca_unidad='$this->marca', vencseguro_unidad='$this->seguro', id_propietario='$this->id_propietario', id_chofer='$this->id_chofer'
+			where placa_unidad='$this->placa'";
+//echo $consulta;
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
@@ -63,10 +64,10 @@ public function inserta(){
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
 
-		$consulta = "INSERT into unidades values('$this->placa_unidad', '$this->unidad', '$this->matricula', '$this->modelo', '$this->marca', '$this->seguro', '$this->id_propietario', '$this->id_chofer') ";
+		$consulta = "INSERT into unidades values('$this->placa_unidad', '$this->unidad', '$this->matricula', '$this->modelo', '$this->marca', '$this->seguro', '$this->id_propietario', '$this->id_chofer')";
 
 			if ($linkSacadatos->query($consulta)){
-				header("Location: plantilla.php");
+			header("Location: plantilla.php");
 											}
 			else{
 				header("Location: ../plantilla/noplantilla-principal.php");
@@ -82,7 +83,8 @@ public function borra(){
    		$linkSacadatos = $conexionSacadatos->con();
 
 
-	$consulta = "DELETE from unidades where placa_unidad=$this->placa_unidad";
+	$consulta = "DELETE from unidades where placa_unidad='$this->placa_unidad'";
+	
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 
