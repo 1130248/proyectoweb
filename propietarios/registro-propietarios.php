@@ -26,6 +26,47 @@
 
 <?php
 
+if (isset($_GET['id_prop'])){
+
+if (isset($_POST['nombre'])){
+$nombre="and nombre_propietario LIKE '%".$_POST["nombre"]."%'";
+$nombres=$_POST["nombre"];
+}else{
+$nombre="";
+$nombres="";
+}
+
+}else{
+if (isset($_POST['nombre'])){
+$nombre="where nombre_propietario LIKE '%".$_POST["nombre"]."%'";
+$nombres=$_POST["nombre"];
+}else{
+$nombre="";
+$nombres="";
+}
+
+}
+
+?>
+    <div >
+        
+            <center>
+
+            <!-- formulario de busquedas -->
+
+            <div  class="form-style-10">
+            <form method="post" action="#">
+            
+            <div class="inner-wrap">
+                <label>Nombre<input type="text" name="nombre" value="<?php echo $nombres?>" required=""></label>
+            </div>
+<center><button value="1" name="env" class="boton"><span>Buscar</span></button></center>
+</form></div>
+
+<!-- FIN del formulario de busquedas -->
+
+<?php
+
 include_once('../conexion/config.php');
 
 $estilo="prop";
@@ -42,60 +83,41 @@ echo "<th>Id</th>
 	  <th>Opciones</th>";
 echo "</tr>";
 
-
+include_once('registro2.php');
+$tablas = new Tablas($nombre);
+$tabla = $tablas->propietarios();
 
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
 
+$mysqli->set_charset("utf8");
+
 $consulta = "SELECT * FROM propietarios";
 $resultado = $mysqli->query($consulta);
 
-	while ($fila = $resultado->fetch_row()) {
+	 ($fila = $resultado->fetch_row());
+
+		 if (isset($_GET['id_checa'])){?>
 
 
-		echo "<tr>";
-		echo "<td>".$fila[0]."</td>
-		      <td>".$fila[1]."</td>
-		      <td>".$fila[2]."</td>
-		      <td>".$fila[3]."</td>
-		      <td>".$fila[4]."</td>
-		      <td>".$fila[5]."</td>
+<center>
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
 
+<?php
 
-
-		      <td>"; 
-$consulta2 = "SELECT unidades.numero_unidad FROM unidades WHERE unidades.id_propietario=".$fila[0]."";
-$resultado2 = $mysqli->query($consulta2);
-	while ($fila2 = $resultado2->fetch_row()) { 
-		      echo $fila2[0];
-		      echo " - ";}
-
-		      echo "</td>
-
-		    <td><center>";
-
-		    ?>
-
-			  <a data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $fila[0]; ?>"><img src=../imagenes/actualizar.png width=35 height=35 /></button></a>
-
-			  
-			  <?php 
-
-			 echo" <a href=plantilla-actualizar-propietarios.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
-</center></td>";
-		echo "</tr>";
-
-	}
-echo "</table>";
-
-echo "<br>";
+}else{
 
 ?>
-<br>
-<br>
-<center><a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
 
+<br>
+<br>
+<center>
+
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<?php
+              }
+?>
 
 <!-- jQuery Version 1.11.0 -->
     <script src="../js/jquery-latest.min.js"></script>

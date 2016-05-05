@@ -24,10 +24,53 @@
 <!-- fin del modal -->
 
 <?php
+
+if (isset($_GET['id_checa'])){
+
+if (isset($_POST['nombre'])){
+$nombre="and nombre_checador LIKE '%".$_POST["nombre"]."%'";
+$nombres=$_POST["nombre"];
+}else{
+$nombre="";
+$nombres="";
+}
+
+}else{
+if (isset($_POST['nombre'])){
+$nombre="where nombre_checador LIKE '%".$_POST["nombre"]."%'";
+$nombres=$_POST["nombre"];
+}else{
+$nombre="";
+$nombres="";
+}
+
+}
+
+?>
+    <div >
+        
+            <center>
+
+            <!-- formulario de busquedas -->
+
+            <div  class="form-style-10">
+            <form method="post" action="#">
+            
+            <div class="inner-wrap">
+                <label>Nombre<input type="text" name="nombre" value="<?php echo $nombres?>" required=""></label>
+            </div>
+<center><button value="1" name="env" class="boton"><span>Buscar</span></button></center>
+</form></div>
+
+<!-- FIN del formulario de busquedas -->
+
+
+<?php
 include_once('../conexion/config.php');
 
 $estilo="prop";
 
+echo "<center>";
 echo "<table id=".$estilo." border=0>";
 echo "<tr>";
 
@@ -44,48 +87,44 @@ echo "<th>Id</th>
 	  <th>Opciones</th>";
 echo "</tr>";
 
+include_once('registro2.php');
+$tablas = new Tablas($nombre);
+$tabla = $tablas->checadores();
+
+
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
+
+
+    $mysqli->set_charset("utf8");
+
 
 $consulta = "SELECT * FROM checadores";
 $resultado = $mysqli->query($consulta);
 
-	while ($fila = $resultado->fetch_row()) {
+	$fila = $resultado->fetch_row();
 
 
-		echo "<tr>";
-		echo "<td>".$fila[0]."</td>
-		      <td>".$fila[1]."</td>
-		      <td>".$fila[2]."</td>
-		      <td>".$fila[3]."</td>
-		      <td>".$fila[4]."</td>
-		      <td>".$fila[5]."</td>
-		      <td>".$fila[6]."</td>
-		      <td>".$fila[7]."</td>
-		      <td>".$fila[8]."</td>
-		      <td>".$fila[9]."</td>
-		      <td><center>";
+		 if (isset($_GET['id_checa'])){?>
 
-		      ?>
 
-			  <a data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $fila[0]; ?>"><img src=../imagenes/actualizar.png width=35 height=35 /></button></a>
+<center>
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
 
-			  
-			  <?php 
+<?php
 
-			 echo"<a href=plantilla-actualizar.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
-</center></td>";
-		echo "</tr>";
-
-	}
-echo "</table>";
-
-echo "<br>";
+}else{
 
 ?>
+
 <br>
 <br>
-<center><a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<center>
+
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<?php
+              }
+?>
 
 <!-- jQuery Version 1.11.0 -->
     <script src="../js/jquery-latest.min.js"></script>

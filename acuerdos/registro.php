@@ -72,12 +72,8 @@ include_once('../conexion/config.php');
 
 
 
-
 $estilo="prop";
 
-
-
-$estilo="prop";
 echo "<center>";
 echo "<table id=".$estilo." border=0>";
 echo "<tr>";
@@ -99,6 +95,8 @@ $tabla = $tablas->acuerdos();
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
 /*$id=$_GET["id_asam"];*/
+
+
 if (isset($_GET['id_ac'])){
 	$id_asamblea=$_GET['id_ac'];
 	$asamblea=$_GET['id_ac'];

@@ -46,6 +46,7 @@ $resultado = $mysqli->query($consulta);
 		      <td>".$fila[3]."</td>
 
 		      <td><center>";
+		      
 		      if (isset($_GET['id_ac'])){
 echo "<a data-toggle='modal' data-target='#exampleModal' data-whatever=".$fila[0]." data-whatever2=$id><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=plantilla-actualizar.php?borrar=".$fila[0]."&id_asam=$id;><img src=../imagenes/eliminar1.png width=35 height=35  /></a>";
 
