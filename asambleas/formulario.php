@@ -29,6 +29,10 @@ $s="s";
 $id_asamblea="";
 $lugar_asamblea="";
 $fecha_asamblea="";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 
 
 }}
@@ -58,8 +62,11 @@ $insertando->borra();
 <center>
 <div class="form-registro">
 		<br>
+<<<<<<< HEAD
 		<br>
 		<br>
+=======
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 		<h1>*>>>> Datos <<<<*</h1>
 		<br>
 		
@@ -68,8 +75,11 @@ $insertando->borra();
 			<br>
 			<div class="formulario">
 		        <label>Lugar:  <input type="text" name="lugar" value="<?php echo $lugar_asamblea?>" require=""></label>
+<<<<<<< HEAD
 		        <br>
 		        <br>
+=======
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 		        <label>Fecha:  <input type="date" name="fecha" value="<?php echo  $fecha_asamblea?>" require=""></label>
 		        
 		        <input type="hidden" name="id_asamblea<?php echo $s;?>" value="<?php echo  $id_asamblea;?>">

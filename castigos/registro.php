@@ -25,6 +25,11 @@
 <!-- fin del modal -->
 
 
+<a href="../graficas/plantilla-grafica-castigos.php"><img class="grafico" src="../imagenes/grafica.png"/></a>
+<br>
+<br>
+
+
 <?php
 
 include_once('../conexion/config.php');

@@ -85,6 +85,7 @@ $insertando->borra();
 		       
 		        <label>Dia descanso: <select require="" name="descanso">
 				<option  value=""  >Selecciona </option>
+<<<<<<< HEAD
 				<option  value="domingo" name="domingo">Domingo </option>
 				<option  value="lunes"  name="lunes">Lunes </option>
 				<option  value="martes"  name="martes">Martes </option>
@@ -92,6 +93,15 @@ $insertando->borra();
 				<option  value="jueves" name="jueves" >Jueves </option>
 				<option  value="viernes" name="viernes" >Viernes </option>
 				<option  value="sabado" name="sabado" >Sábado </option>
+=======
+				<option  value="Domingo"  >Domingo </option>
+				<option  value="Lunes"  >Lunes </option>
+				<option  value="Martes"  >Martes </option>
+				<option  value="Miercoles"  >Miercoles </option>
+				<option  value="Jueves"  >Jueves </option>
+				<option  value="Viernes"  >Viernes </option>
+				<option  value="Sabado"  >Sabado </option>
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 			</select>
 		</label>
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <br>
 <br>
 <br>
@@ -5,6 +6,10 @@
 <br>
 <br>
 <br>
+=======
+<img class="img-titulo" src="../Imagenes/asambleas.png">
+
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 <?php
 
 include_once('../conexion/config.php');
@@ -61,6 +66,7 @@ echo "</table>";
 echo "<br>";
 
 ?>
+<<<<<<< HEAD
 <br>
 <br>
 <center><button type="submit" class="boton" style="margin-bottom: 10%;"><span>Guardar</span></button></center>
@@ -68,3 +74,9 @@ echo "<br>";
 </form>
 <br>
 <br>
+=======
+
+<button type="submit" class="boton" style="margin-bottom: 30%;"><span>Guardar</span></button>
+
+</form>
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d

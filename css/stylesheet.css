@@ -320,7 +320,11 @@ html {
 	max-width:450px;
 	padding:30px;
 	margin:40px auto;
+<<<<<<< HEAD
 	background: #D46A6A;
+=======
+	background: #f8f8f8;
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 	border-radius: 10px;
 	-webkit-border-radius:10px;
 	-moz-border-radius: 10px;
@@ -330,6 +334,7 @@ html {
 }
 .form-style-10 .inner-wrap{
 	padding: 30px;
+<<<<<<< HEAD
 	background: #D46A6A;
 	border-radius: 6px;
 	margin-bottom: 15px;
@@ -353,15 +358,29 @@ float: right;
 	margin-right: 10px;
 }
 
+=======
+	background: #F8F8F8;
+	border-radius: 6px;
+	margin-bottom: 15px;
+}
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
  .responstable {
   margin: 5em 0;
   width: 80%;
   overflow: hidden;
+<<<<<<< HEAD
   background: #D46A6A;
   color: #5E5E5E;
   border-radius: 10px;
   border: 1px solid #d8b328;
   font-size: 18px;
+=======
+  background: #FFF;
+  color: #024457;
+  border-radius: 10px;
+  border: 1px solid #d8b328;
+  font-size: 14px;
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
 }
 .responstable tr {
   border: 1px solid #D9E4E6;
@@ -373,7 +392,11 @@ float: right;
   display: none;
   border: 1px solid #FFF;
   background-color: #004d4b;
+<<<<<<< HEAD
   color: #5E5E5E;
+=======
+  color: #d8b328;
+>>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
   padding: 1em;
 }
 .responstable th:first-child {
