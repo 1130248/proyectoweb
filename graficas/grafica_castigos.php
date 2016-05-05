@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <br>
 <br>
 <br>
@@ -6,8 +6,7 @@
 <br>
 <br>
 <br>
-=======
->>>>>>> 1cee32532a9fa8d9eda7b2ed59d2dfaedf427c7d
+
 <a href="../castigos/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a>
 
 

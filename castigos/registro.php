@@ -2,8 +2,6 @@
 <br>
 <br>
 <center><img class="img-titulo" src="../Imagenes/castigos.png"></center>
-
-<a href="../graficas/plantilla-grafica-castigos.php"><img class="grafico" src="../imagenes/grafica.png"/></a>
 <br>
 <br>
 <!-- Modal -->
@@ -11,7 +9,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">Close</button>
+                    <button type="button" class="close" data-dismiss="modal">Cerrar</button>
                    
                 </div>
                 <div class="ct">
@@ -107,7 +105,7 @@ echo "<br>";
           var button = $(event.relatedTarget) // Button that triggered the modal
           var recipient = button.data('whatever') // Extract info from data-* attributes
           var modal = $(this);
-          var dataString = 'id_castigo=' + recipient;
+          var dataString = 'id_cas=' + recipient;
 
             $.ajax({
                 type: "GET",
