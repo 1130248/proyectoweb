@@ -8,14 +8,17 @@ $mysqli = $conexionSacadatos->con();
 if (isset($_GET['placa'])){
 	$placa_unidad=$_GET['placa'];
 
+if ($placa_unidad>0) {
+
 	$mysqli->set_charset("utf8");
 
-$consulta = "SELECT * FROM unidades where placa_unidad=$placa_unidad";
+$consulta = "SELECT * FROM unidades where placa_unidad='$placa_unidad'";
 
 $resultado = $mysqli->query($consulta);
 $fila = $resultado->fetch_row();
 
 $s="";
+$id=$fila[0];
 $placa_unidad=$fila[0];
 $numero_unidad=$fila[1];
 $matricula_unidad=$fila[2];
@@ -27,6 +30,7 @@ $id_chofer=$fila[7];
 
 }else{
 $s="s";
+$id="";
 $placa_unidad="";
 $numero_unidad="";
 $matricula_unidad="";
@@ -36,24 +40,25 @@ $vencseguro_unidad="";
 $id_propietario="";
 $id_chofer="";
 
-}
+}}
 
 include_once('actualizar.php');
 
-if(isset($_POST["placa_unidad"])){
-$insertando=new  NuevoRegistro($_POST["placa_unidad"],$_POST["unidad"],$_POST["matricula"], $_POST["modelo"], $_POST["marca"],$_POST["seguro"],$_POST["id_propietario"], $_POST["id_chofer"]);
+if(isset($_POST["id"])){
+
+$insertando=new  NuevoRegistro($_POST["placa_unidad"],$_POST["unidad"],$_POST["matricula"], $_POST["modelo"], $_POST["marca"],$_POST["seguro"],$_POST["id_propietario"], $_POST["id_chofer"],$_POST["id"]);
 $insertando->actualiza();
 
 }
 
-elseif (isset($_POST["placa_unidads"])){
-$insertando=new  NuevoRegistro($_POST["placa_unidads"],$_POST["unidad"],$_POST["matricula"], $_POST["modelo"], $_POST["marca"],$_POST["seguro"],$_POST["id_propietario"], $_POST["id_chofer"]);
+elseif (isset($_POST["ids"])){
+$insertando=new  NuevoRegistro($_POST["placa_unidad"],$_POST["unidad"],$_POST["matricula"], $_POST["modelo"], $_POST["marca"],$_POST["seguro"],$_POST["id_propietario"], $_POST["id_chofer"],0);
 $insertando->inserta();
 	
 
 }elseif (isset($_GET["borrar"])){
 
-$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0,0,0,0);
+$insertando=new  NuevoRegistro($_GET["borrar"],0,0,0,0,0,0,0,0);
 $insertando->borra();
 
 }
@@ -77,13 +82,13 @@ $mysqli->set_charset("utf8");
 $consulta="SELECT * from choferes";
 $resulta= $mysqli->query($consulta);
 ?>
-
+<center>
 <div class="form-registro_mas">
 		<br>
 		<h1>*>>>> Datos <<<<*</h1>
 		<br>
 		<br>
-		<form method="post" action="#">
+		<form method="post" action="formulario.php">
 			
 			<div class="formulario">
 
@@ -94,29 +99,30 @@ $resulta= $mysqli->query($consulta);
 		        <label>Marca: <input type="text" name="marca" value="<?php echo $marca_unidad?>" required=""></label>
 		        <label>Venc. Póliza:  <input type="date" name="seguro" value="<?php echo $vencseguro_unidad?>" required=""></label>
 		   
-		        <label>Propietario:   <select>    
-    <?php    
-    while ($row = $result->fetch_array()){
-    ?>
-        <option value="<?php echo $row['id_propietario'] ?>">
-        <?php echo $row['nombre_propietario']; ?>
-        </option>
-        <?php
-    }    
-    ?>       	</select></label>
+		       
 
-		        <label>Chofer: <select>    
-    <?php    
-    while ($row = $resulta->fetch_array()){
-        ?>
-    
-        <option value=" <?php echo $row['id_chofer'] ?> " >
-        <?php echo $row['nombre_chofer']; ?>
-        </option>
-        <?php
-    }    
-    ?>        </select></label>
-		        <input type="hidden" name="placa_unidad<?php echo $s;?>" value="<?php echo  $placa_unidad;?>">
+    <label> Propietario: <select require="" name="id_propietario">
+				<option  value=""  >Selecciona </option>
+				<?PHP
+				while ($fila = $result->fetch_row()){
+					
+					echo "<option value='".$fila['0']."'> ".$fila['1']."</option>";
+				}
+				?>
+			</select>
+		</label>
+
+ <label> Chofer: <select require="" name="id_chofer">
+				<option  value=""  >Selecciona </option>
+				<?PHP
+				while ($fila = $resulta->fetch_row()){
+					
+					echo "<option value='".$fila['0']."'> ".$fila['1']."</option>";
+				}
+				?>
+			</select>
+		</label>
+		        <input type="hidden" name="id<?php echo $s;?>" value="<?php echo  $placa_unidad;?>">
 		       
 		    </div>
 		    <br>
@@ -128,6 +134,6 @@ $resulta= $mysqli->query($consulta);
 	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
 			
 		</form>
-					</div>
+					</div></center>
 					<br>
 					<br>

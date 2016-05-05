@@ -3,6 +3,7 @@
 <head>
 <Meta charset="UTF-8">
 <link  type="text/css" rel="stylesheet "href="../css/stylesheet.css">
+<!--<link  type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">-->
 	<title>Ruta 23</title>
 </head>
 

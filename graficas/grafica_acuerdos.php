@@ -1,3 +1,5 @@
+<a href="../acuerdos/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a>
+
 
         <link rel="stylesheet" href="style.css" type="text/css">
         <script src="../librerias/amcharts/amcharts.js" type="text/javascript"></script>

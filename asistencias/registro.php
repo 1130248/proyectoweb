@@ -1,4 +1,11 @@
-<img class="img-titulo" src="../Imagenes/propietarios.png">
+<br>
+<br>
+<br>
+<center><img class="img-titulo" src="../Imagenes/asistencias.png"></center>
+<br>
+<br>
+
+
 
 <?php
 
@@ -21,12 +28,8 @@ echo "<tr>";
 
 echo "<th>Id</th>
 	  <th>Nombre</th>
-	  <th>Apellido</th>
-	  <th>Dirección</th>
-	  <th>Telefono</th>
-	  <th>E_mail</th>
-	  <th>Unidades</th>
-	  <th>Opciones</th>";
+	  <th>Asistidas</th>
+	  <th>Inasistidas</th>";
 echo "</tr>";
 
 
@@ -40,14 +43,10 @@ $resultado = $mysqli->query($consulta);
 		echo "<tr>";
 		echo "<td>".$fila[0]."</td>
 		      <td>".$fila[1]."</td>
-		      <td>".$fila[2]."</td>
-		      <td>".$fila[3]."</td>
-		      <td>".$fila[4]."</td>
-		      <td>".$fila[5]."</td>
-		      <td>".$fila[6]."</td>
-		      <td><center>
-			  <a href=plantilla-actualizar-propietarios.php?id_prop=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=actualizar-propietarios.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
-</center></td>";
+		      <td><center> <a href=plantilla-tablas.php?id_ac=".$fila[0]."><img src=../imagenes/asistida.png width=35 height=35 /></a></td>
+		    </center> 
+		   <td><center><a href=plantilla-tablas.php?id_ac=".$fila[0]."&id_asam=".$fila[0]."><img src=../imagenes/noasistida.png width=35 height=35 /></center></td>
+	  ";
 		echo "</tr>";
 
 	}
@@ -56,5 +55,6 @@ echo "</table>";
 echo "<br>";
 
 ?>
-
-<a href="plantilla-actualizar-propietarios.php"><button type="submit" class="boton" style="margin-bottom: 30%;"><span>Agregar</span></button></a>
+<br>
+<br>
+<br>

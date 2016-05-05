@@ -8,6 +8,8 @@ $mysqli = $conexionSacadatos->con();
 if (isset($_GET['id_prop'])){
 	$id=$_GET['id_prop'];
 
+if ($id>0) {
+
 	$mysqli->set_charset("utf8");
 	
 $consulta = "SELECT * FROM propietarios where id_propietario=$id";
@@ -34,7 +36,7 @@ $telefono="";
 $correo="";
 
 
-}
+}}
 
 include_once('actualizar-propietarios.php');
 
@@ -58,11 +60,12 @@ $insertando->borra();
 }
 
 ?>
+<center>
 <div class="form-registro">
 		<br>
 		<h1>*>>>> Datos <<<<*</h1>
 		<br>
-		<form method="post" action="#">
+		<form method="post" action="formulario-propietarios.php">
 			
 			<div class="formulario">
 		        <label>Nombre:  <input type="text" name="nombre" value="<?php echo $nombre_propietario?>" require=""></label>
@@ -78,9 +81,9 @@ $insertando->borra();
 		    <br>
 
 		   
-	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
+	<button value="1"  name="env" class="boton"><span>Aceptar</span></button>
 			
 		</form>
-					</div>
+					</div></center>
 					<br>
 					<br>

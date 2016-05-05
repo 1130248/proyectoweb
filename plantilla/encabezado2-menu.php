@@ -3,6 +3,8 @@
 <head>
 <Meta charset="UTF-8">
 <link  type="text/css" rel="stylesheet "href="../css/stylesheet.css">
+<!--<link  type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">-->
+
 	<title>Ruta 23</title>
 </head>
 
@@ -12,7 +14,7 @@
 	
 	
 	<a href="Ruta23.php"><p>Cerrar sesión</p></a>
-	<a href="../plantilla/plantilla-botones-menu.php"><p>Menú</p></a></div>
+	</div>
 
 	</div>
 

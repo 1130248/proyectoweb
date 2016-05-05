@@ -10,18 +10,17 @@ include_once('../conexion/config.php');
 class NuevoRegistro extends Conexion{
 
 public $id_asamblea;
-public $fecha;
 public $lugar;
-public $asistencia;
-public $acuerdos;
+public $fecha;
 
-function __construct($id_asamblea,$fecha, $lugar, $asistencia, $acuerdos){
+
+function __construct($id_asamblea,$lugar,$fecha){
 
 $this->id_asamblea=$id_asamblea;
-$this->fecha=$fecha;
 $this->lugar=$lugar;
-$this->asistencia=$asistencia;
-$this->acuerdos=$acuerdos;
+$this->fecha=$fecha;
+
+
 }
 /*echo $nombre;
 echo $apellido;
@@ -38,7 +37,7 @@ echo $unidades;*/
     $conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();
 
-		$consulta = "UPDATE asambleas SET fecha_asamblea='$this->fecha', lugar_asamblea='$this->lugar', asistencia='$this->asistencia', nacuerdos='$this->acuerdos' where id_asamblea=$this->id_asamblea";
+		$consulta = "UPDATE asambleas SET lugar_asamblea='$this->lugar', fecha_asamblea='$this->fecha'  where id_asamblea=$this->id_asamblea";
 
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
@@ -58,9 +57,9 @@ echo $unidades;*/
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
 
-		$consulta = "INSERT into asambleas values('', '$this->fecha', '$this->lugar', '$this->asistencia', '$this->acuerdos'";
+		$consulta = "INSERT into asambleas values('', '$this->lugar', '$this->fecha')";
 
-
+		//echo $consulta;
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}

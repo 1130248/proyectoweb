@@ -8,6 +8,8 @@ $mysqli = $conexionSacadatos->con();
 if (isset($_GET['id_checa'])){
 	$id_checador=$_GET['id_checa'];
 
+if ($id_checador>0) {
+
 	$mysqli->set_charset("utf8");
 
 $consulta = "SELECT * FROM checadores where id_checador=$id_checador";
@@ -39,7 +41,7 @@ $hora_entrada="";
 $hora_salida="";
 $ddescanso="";
 
-}
+}}
 
 include_once('actualizar.php');
 
@@ -63,13 +65,13 @@ $insertando->borra();
 
 ?>
 
-
+<center>
 <div class="form-registro_mas">
 		<br>
 		<h1>*>>>> Datos <<<<*</h1>
 		
 	
-		<form method="post" action="#">
+		<form method="post" action="formulario.php">
 			
 			<div class="formulario">
 		        <label>Nombre:  <input type="text" name="nombre" value="<?php echo $nombre_checador?>" require=""></label>
@@ -80,19 +82,29 @@ $insertando->borra();
 		        <label>Estación: <input type="text" name="estacion" value="<?php echo $estacion?>" required=""></label>
 		        <label>Entrada:  <input type="time" name="entrada" value="<?php echo $hora_entrada?>" required=""></label>
 		        <label>Salida:   <input type="time" name="salida" value="<?php echo $hora_salida?>" required=""></label>
-		        <label>Dia descanso: <input type="text" name="descanso" value="<?php echo $ddescanso?>" required=""></label>
-
+		       
+		        <label>Dia descanso: <select require="" name="descanso">
+				<option  value=""  >Selecciona </option>
+				<option  value="domingo" name="domingo">Domingo </option>
+				<option  value="lunes"  name="lunes">Lunes </option>
+				<option  value="martes"  name="martes">Martes </option>
+				<option  value="miercoles" name="miercoles" >Miercoles </option>
+				<option  value="jueves" name="jueves" >Jueves </option>
+				<option  value="viernes" name="viernes" >Viernes </option>
+				<option  value="sabado" name="sabado" >Sábado </option>
+			</select>
+		</label>
 
 		        <input type="hidden" name="id_checador<?php echo $s;?>" value="<?php echo  $id_checador;?>">
 		       
 		    </div>
-		    <br>
-		     <br>
-		      <br>
+		    
+		   <br>
+		   <br>
 		   
-	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
+	<button value="1"  name="env" class="boton"><span>Aceptar</span></button>
 			
 		</form>
-					</div>
+					</div></center>
 					<br>
 					<br>

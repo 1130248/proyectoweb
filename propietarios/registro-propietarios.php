@@ -1,4 +1,28 @@
-<img class="img-titulo" src="../Imagenes/propietarios.png">
+<br>
+<br>
+<br>
+<center><img class="img-titulo" src="../Imagenes/propietarios.png"></center>
+<br>
+<br>
+<br>
+
+<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">Cerrar</button>
+                   
+                </div>
+                <div class="ct">
+              
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+<!-- fin del modal -->
 
 <?php
 
@@ -49,9 +73,16 @@ $resultado2 = $mysqli->query($consulta2);
 
 		      echo "</td>
 
-		    <td><center>
+		    <td><center>";
 
-			  <a href=plantilla-actualizar-propietarios.php?id_prop=".$fila[0]."><img src=../imagenes/actualizar.png width=35 height=35 /></a><a href=plantilla-actualizar-propietarios.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
+		    ?>
+
+			  <a data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $fila[0]; ?>"><img src=../imagenes/actualizar.png width=35 height=35 /></button></a>
+
+			  
+			  <?php 
+
+			 echo" <a href=plantilla-actualizar-propietarios.php?borrar=".$fila[0]."><img src=../imagenes/eliminar1.png width=35 height=35  /></a>
 </center></td>";
 		echo "</tr>";
 
@@ -61,5 +92,36 @@ echo "</table>";
 echo "<br>";
 
 ?>
+<br>
+<br>
+<center><a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
 
-<a href="plantilla-actualizar-propietarios.php"><button type="submit" class="boton" style="margin-bottom: 30%;"><span>Agregar</span></button></a>
+
+<!-- jQuery Version 1.11.0 -->
+    <script src="../js/jquery-latest.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
+
+    <script>
+    $('#exampleModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var recipient = button.data('whatever') // Extract info from data-* attributes
+          var modal = $(this);
+          var dataString = 'id_prop=' + recipient;
+
+            $.ajax({
+                type: "GET",
+                url: "formulario-propietarios.php",
+                data: dataString,
+                cache: false,
+                success: function (data) {
+                    console.log(data);
+                    modal.find('.ct').html(data);
+                },
+                error: function(err) {
+                    console.log(err);
+                }
+            });  
+    })
+    </script>

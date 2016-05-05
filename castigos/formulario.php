@@ -8,6 +8,9 @@ $mysqli = $conexionSacadatos->con();
 if (isset($_GET['id_cas'])){
 	$id_castigo=$_GET['id_cas'];
 
+if ($id_castigo>0) {
+	
+
 	$mysqli->set_charset("utf8");
 
 $consulta = "SELECT * FROM castigos where id_castigo=$id_castigo";
@@ -38,7 +41,7 @@ $termina="";
 $id_chofer="";
 $id_checador="";
 
-}
+}}
 
 include_once('actualizar.php');
 
@@ -80,13 +83,13 @@ $mysqli->set_charset("utf8");
 $consulta="SELECT * from checadores";
 $resulta= $mysqli->query($consulta);
 ?>
-
+<center>
 <div class="form-registro_mas">
 		<br>
 		<h1>Modificar datos</h1>
 		<br>
 		
-		<form method="post" action="#">
+		<form method="post" action="formulario.php">
 			
 			<div class="formulario">
 		        <label>Motivo:  <input type="text" name="motivo" value="<?php echo $motivo?>" require=""></label>
@@ -95,7 +98,7 @@ $resulta= $mysqli->query($consulta);
 		        <label>No. días:  <input type="number" name="dias" value="<?php echo $dias?>" required=""></label>
 		        <label>Fecha inicio:   <input type="date" name="inicio" value="<?php echo $inicio?>" required=""></label>
 		        <label>Fecha termina: <input type="date" name="termina" value="<?php echo $termina?>" required=""></label>
-				<label>Chofer:   <select>    
+				<label>Chofer:   <select require="" name="id_chofer">    
     <?php    
     while ( $row = $result->fetch_array() )    
     { ?>
@@ -107,7 +110,7 @@ $resulta= $mysqli->query($consulta);
         <?php } ?>        </select></label>
 
 		        
-		        <label>Checador:  <select>    
+		        <label>Checador:  <select require="" name="id_checador">    
     <?php    
     while ( $row = $resulta->fetch_array() )    
     { ?>
@@ -130,6 +133,7 @@ $resulta= $mysqli->query($consulta);
 	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
 			
 		</form>
-					</div>
+					</div></center>
+					<br>
 					<br>
 					<br>

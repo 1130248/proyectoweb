@@ -9,6 +9,8 @@ $mysqli = $conexionSacadatos->con();
 if (isset($_GET['id_chof'])){
 	$id_chofer=$_GET['id_chof'];
 
+if ($id_chofer>0) {
+
 	$mysqli->set_charset("utf8");
 
 $consulta = "SELECT * FROM choferes where id_chofer=$id_chofer";
@@ -37,7 +39,7 @@ $correo="";
 $licencia_tipo="";
 $licencia_venc="";
 
-}
+}}
 
 include_once('actualizar.php');
 
@@ -60,12 +62,13 @@ $insertando->borra();
 }
 
 ?>
+<center>
 <div class="form-registro_mas">
 		<br>
 		<h1>*>>>> Datos <<<<*</h1>
 		<br>
 		<br>
-		<form method="post" action="#">
+		<form method="post" action="formulario.php">
 			
 			<div class="formulario">
 		        <label>Nombre:  <input type="text" name="nombre" value="<?php echo $nombre_chofer?>" require=""></label>
@@ -73,7 +76,14 @@ $insertando->borra();
 		        <label>Dirección: <input type="text" name="direccion" value="<?php echo $direccion?>" required=""></label>
 		        <label>Telefono:  <input type="text" name="telefono" value="<?php echo $telefono?>" required=""></label>
 		        <label>Correo:   <input type="text" name="correo" value="<?php echo $correo?>" required=""></label>
-		        <label>Licencia: <input type="text" name="licencia" value="<?php echo $licencia_tipo?>" required=""></label>
+
+		 
+		        <label> Licencia: <select require="" name="licencia">
+				<option  value=""  >Selecciona </option>
+				<option  value="Chofer"  >Chofer </option>
+				<option  value="Operador"  >Operador </option>
+			</select>
+		</label>
 		        <label>Vencimiento: <input type="date" name="vencimiento" value="<?php echo $licencia_venc?>" required=""></label>
 		        <input type="hidden" name="id_chofer<?php echo $s;?>" value="<?php echo  $id_chofer;?>">
 		       
@@ -87,6 +97,6 @@ $insertando->borra();
 	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
 			
 		</form>
-					</div>
+					</div></center>
 					<br>
 					<br>

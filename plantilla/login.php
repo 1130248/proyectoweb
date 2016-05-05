@@ -3,6 +3,7 @@
 <br>
 <br>
 <fieldset>
+
 <?php if(isset($_GET["error"])) echo "<a href=\"Ruta23.php\"> E r r o r       Regresar </a> "
 ?>
 	<legend id="titulo">Ingrese Usuario y Contraseña</legend>

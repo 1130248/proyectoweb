@@ -4,7 +4,7 @@
 
 include_once('../conexion/config.php');
 
-class NuevoRegistro extends Conexion{
+class NuevoRegistro{
 
 public $id_acuerdo;
 public $acuerdo;
@@ -32,8 +32,8 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
     $linkSacadatos = $conexionSacadatos->con();
 
 
-		$consulta = "UPDATE acuerdos SET num_acuerdo='$this->acuerdo', detalle_acuerdo='$this->detalle', id_asamblea='$this->id_asamblea' where id_acuerdo=$this->id_acuerdo";
-
+		$consulta = "UPDATE acuerdos SET num_acuerdo='$this->acuerdo', detalle_acuerdo='$this->detalle', id_asamblea=$this->id_asamblea where id_acuerdo=$this->id_acuerdo";
+//echo $consulta;
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");
 											}
@@ -52,12 +52,12 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
    		$linkSacadatos = $conexionSacadatos->con();
 
 		$consulta = "INSERT into acuerdos values('', '$this->acuerdo', '$this->detalle', '$this->id_asamblea') ";
-			
+	//	echo $consulta;	
 			if ($linkSacadatos->query($consulta)){
-				header("Location: plantilla.php");
+			header("Location: plantilla.php");
 											}
 			else{
-				header("Location: ../plantilla/noplantilla-principal.php");
+			header("Location: ../plantilla/noplantilla-principal.php");
 				}
 			}
 
@@ -67,14 +67,14 @@ public function borra(){
    		$linkSacadatos = $conexionSacadatos->con();
 
 	$consulta = "DELETE from acuerdos where id_acuerdo='$this->id_acuerdo'";
-
+//echo $consulta;
 			if ($linkSacadatos->query($consulta)){
 
-				header("Location: plantilla.php");
+	header("Location: plantilla.php");
 				
 			}else{
 				
-			header("Location: ../plantilla/noplantilla-principal.php");
+	header("Location: ../plantilla/noplantilla-principal.php");
 				}
 
 }

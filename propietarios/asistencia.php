@@ -1,4 +1,10 @@
-<img class="img-titulo" src="../Imagenes/propietarios.png">
+<br>
+<br>
+<br>
+<center><img class="img-titulo" src="../Imagenes/propietarios.png"></center>
+<br>
+<br>
+<br>
 
 <?php
 
@@ -62,5 +68,9 @@ echo "</table>";
 echo "<br>";
 
 ?>
-
-<a href="plantilla-actualizar-propietarios.php"><button type="submit" class="boton" style="margin-bottom: 30%;"><span>Agregar</span></button></a>
+<br>
+<br>
+<a href="plantilla-actualizar-propietarios.php"><button type="submit" class="boton" style="margin-bottom: 10%;"><span>Agregar</span></button></a>
+<br>
+<br>
+<br>

@@ -1,7 +1,5 @@
 <body>
-<br>
-<br>
-<br>
+<center>
 <div id="menu1">
                
                <a href="../propietarios/plantilla-propietarios.php" class="boton colorBoton formaBoton"> Propietarios </a>
@@ -12,10 +10,10 @@
                <a href="../asambleas/plantilla.php" class="boton colorBoton formaBoton"> Asambleas</a>
                <a href="../acuerdos/plantilla.php" class="boton colorBoton formaBoton"> Acuerdos</a>
                <a href="../asistencias/plantilla.php" class="boton colorBoton formaBoton">Asistencias</a>
-               <a href="../graficas/plantilla_grafica.php" class="boton colorBoton formaBoton">Graficas</a>
                
             </div>
+            </center>
 		
-	<div> <img id="combi" src="../imagenes/combi.png"></div>
+	<center><div> <img id="combi" src="../imagenes/combi.png"></div></center>
 
 </body>
