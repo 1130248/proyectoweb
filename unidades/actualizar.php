@@ -42,6 +42,7 @@ $this->placa=$placa;
 
     $conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();
+    $linkSacadatos->set_charset("utf8");
 
 		$consulta = "UPDATE unidades SET placa_unidad='$this->placa_unidad', numero_unidad='$this->unidad', matricula_unidad='$this->matricula', modelo_unidad='$this->modelo', marca_unidad='$this->marca', vencseguro_unidad='$this->seguro', id_propietario='$this->id_propietario', id_chofer='$this->id_chofer'
 			where placa_unidad='$this->placa'";
@@ -63,6 +64,7 @@ public function inserta(){
 
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
+   		$linkSacadatos->set_charset("utf8");
 
 		$consulta = "INSERT into unidades values('$this->placa_unidad', '$this->unidad', '$this->matricula', '$this->modelo', '$this->marca', '$this->seguro', '$this->id_propietario', '$this->id_chofer')";
 

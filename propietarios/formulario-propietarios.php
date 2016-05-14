@@ -5,10 +5,6 @@ $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
 
 
-
-
-
-
 if (isset($_GET['id_prop'])){
 	$id=$_GET['id_prop'];
 

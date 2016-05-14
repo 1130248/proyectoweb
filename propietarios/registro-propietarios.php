@@ -1,10 +1,9 @@
+
 <br>
-<br>
-<br>
+
 <center><img class="img-titulo" src="../Imagenes/propietarios.png"></center>
-<br>
-<br>
-<br>
+
+
 
 <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
@@ -48,7 +47,7 @@ $nombres="";
 }
 
 ?>
-    <div >
+    
         
             <center>
 
@@ -59,40 +58,39 @@ $nombres="";
             
             <div class="inner-wrap">
                 <label>Nombre<input type="text" name="nombre" value="<?php echo $nombres?>" required=""></label>
-            </div>
-<center><button value="1" name="env" class="boton"><span>Buscar</span></button></center>
-</form></div>
+          <button value="1" name="env" class="boton buscar"><span>Buscar</span></button></center>
+</form></div>  </div>
 
 <!-- FIN del formulario de busquedas -->
 
 <?php
 
 include_once('../conexion/config.php');
+$espacio=" ";
 
 $estilo="prop";
-echo "<table id=".$estilo." border=0>";
+echo "<table id=".$estilo." border=1>";
 echo "<tr>";
 
-echo "<th>Id</th>
-	  <th>Nombre</th>
-	  <th>Apellido</th>
-	  <th>Dirección</th>
-	  <th>Telefono</th>
-	  <th>E_mail</th>
-	  <th>Unidades</th>
-	  <th>Opciones</th>";
+echo "<th>&nbsp;Id&nbsp;</th>
+	  <th>&nbsp;Nombre&nbsp;</th>
+	  <th>&nbsp;Apellido&nbsp;</th>
+	  <th>&nbsp;Dirección&nbsp;</th>
+	  <th>&nbsp;Telefono&nbsp;</th>
+	  <th>&nbsp;E_mail &nbsp;</th>
+	  <th>&nbsp;Unidades &nbsp;</th>
+	  <th>&nbsp;Opciones &nbsp;</th>";
 echo "</tr>";
 
 include_once('registro2.php');
+
 $tablas = new Tablas($nombre);
 $tabla = $tablas->propietarios();
-
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
 
 $mysqli->set_charset("utf8");
-
 $consulta = "SELECT * FROM propietarios";
 $resultado = $mysqli->query($consulta);
 
@@ -102,7 +100,7 @@ $resultado = $mysqli->query($consulta);
 
 
 <center>
-<a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 5%;"><span>Agregar</span></button></a></center>
 
 <?php
 
@@ -111,10 +109,10 @@ $resultado = $mysqli->query($consulta);
 ?>
 
 <br>
-<br>
+
 <center>
 
-<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 5%;"><span>Agregar</span></button></a></center>
 <?php
               }
 ?>

@@ -27,10 +27,13 @@ $s="";
 $id=$fila1[0];
  //echo $consulta;
 
+$mysqli->set_charset("utf8");
 $consulta = "SELECT * FROM acuerdos where id_asamblea=$id_asamblea $this->detalle";
 $resultado = $mysqli->query($consulta);
+
 //echo $consulta;
 }else{
+$mysqli->set_charset("utf8");	
 $consulta = "SELECT * FROM acuerdos $this->detalle";
 $resultado = $mysqli->query($consulta);
 //echo $consulta;
@@ -64,8 +67,6 @@ echo "</center></td>";
 	}
 echo "</table>";
 echo "</center>";
-
-echo "<br>";
 }
 
 }

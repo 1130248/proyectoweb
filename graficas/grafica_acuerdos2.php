@@ -1,10 +1,12 @@
 <br>
 <br>
+<br><br>
+<br>
+<br>
+<br>
 <br>
 <center><img class="img-titulo" src="../Imagenes/acuerdosgraf.png"></center>
-<br>
-<br>
-<br>
+
 
 <center><a href="../acuerdos/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a></center>
 
@@ -92,8 +94,6 @@ echo "\n];";
     
         <div id="chartdiv" style="width: 100%; height: 400px;"></div>
 
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+  
+       <br>
+       <br>

@@ -35,7 +35,7 @@ public function actualiza(){
 
 	$conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();	
-
+    $linkSacadatos->set_charset("utf8");
 
 
 /*if(isset($_POST["id_propietario"])){
@@ -57,7 +57,8 @@ public function actualiza(){
 	$nombre=$_POST["nombre"];*/
 	$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
-
+   		$linkSacadatos->set_charset("utf8");
+   		
 		$consulta = "INSERT into propietarios values('', '$this->nombre', '$this->apellido', '$this->direccion', '$this->telefono', '$this->correo') ";
 
 			if ($linkSacadatos->query($consulta)){

@@ -5,6 +5,7 @@
 include_once('../conexion/config.php');
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
 
 if (isset($_GET['id_asam']) && isset($_GET["borrar"])) {
 	$id_acuerdo=$_GET['borrar'];
@@ -37,9 +38,7 @@ if (isset($_GET['id_ac'])){
 	$id_acuerdo=$_GET['id_ac'];
 	$a=$_GET['id_asam'];
 
-	if($id_acuerdo>0 && $a>0){
-		$h=1;
-	}else{
+	
 
 		if (isset($_GET['id_ac'])){
 			$id_acuerdo=$_GET['id_ac'];
@@ -56,6 +55,9 @@ if (isset($_GET['id_ac'])){
 			$detalle_acuerdo=$fila[2];
 			$id_asamblea=$fila[3];
 
+if($id_acuerdo>0 && $a>0){
+		$h=1;
+	}else{
 
 			if($id_acuerdo>0 && $a<1){
 				$h=0;
@@ -69,7 +71,7 @@ if (isset($_GET['id_ac'])){
 				}
 			}
 
-		}
+		}}
 
 		$as=0;
 		$ac=0;
@@ -116,7 +118,7 @@ if (isset($_GET['id_ac'])){
 					$id_asamblea=0;
 				}
 			}
-		}}}
+		}}
 		else
 		{
 
@@ -194,7 +196,7 @@ if (isset($_GET['id_ac'])){
 				<div class="formulario">
 
 					<label>Acuerdo No.:  <input type="text" name="acuerdo" value="<?php echo $num_acuerdo?>" require=""></label>
-					<label>Detalle:  </label> <textarea name="detalle" rows="10" cols="57" require=""><?php echo $detalle_acuerdo ?> </textarea>
+					<label>Detalle:  </label> <textarea name="detalle" rows="10" cols="57" require=""> <?php echo $detalle_acuerdo ?> </textarea>
 					<?php
 					if($r>0){
 						?>
@@ -237,6 +239,7 @@ if (isset($_GET['id_ac'])){
 
 								<?php
 							}
+						
 							?>
 
 
@@ -245,7 +248,10 @@ if (isset($_GET['id_ac'])){
 							<input type="hidden" name="check" value="<?php echo  $h;?>">
 						</div>
 						<br>
-
+						<br>
 						<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
 
-					</form></center>
+					</form></div></center>
+					<br>
+					<br>
+					

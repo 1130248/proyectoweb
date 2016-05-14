@@ -25,15 +25,17 @@ include_once('../conexion/config.php');
 
 $estilo="prop";
 echo "<center>";
-echo "<table id=".$estilo." border=0>";
+echo "<table id=".$estilo." border=1>";
 echo "<tr>";
 
-echo "<th>Id</th>
-	  <th>Lugar</th>
-	  <th>Fecha</th>
-	  <th>Asistencia</th>
-	  <th>Acuerdos</th>
-	  <th>Opciones</th>";
+echo "<th>&nbsp;Id&nbsp;</th>
+	  <th>&nbsp;Lugar&nbsp;</th>
+	  <th>&nbsp;Fecha&nbsp;</th>
+	  <th>&nbsp;Pase_Lista&nbsp;</th>
+	  <th>&nbsp;Acuerdos&nbsp;</th>
+      <th>&nbsp;Asistentes&nbsp;</th>
+      <th>&nbsp;Inasistentes&nbsp;</th>
+	  <th>&nbsp;Opciones&nbsp;</th>";
 echo "</tr>";
 
 $conexionSacadatos = new Conexion();
@@ -52,6 +54,11 @@ $resultado = $mysqli->query($consulta);
 		      <td><center><a href=../propietarios/plantilla-paselista-propietarios.php?id_ac=".$fila[0]."><img src=../imagenes/asistencia.png width=35 height=35 /></center></td>
 
 		      <td><center><a href=../acuerdos/plantilla.php?id_ac=".$fila[0]."><img src=../imagenes/acuerdo.png width=35 height=35 /></center></td>
+
+               <td><center> <a href=plantilla-tablas.php?id_ac=".$fila[0]."><img src=../imagenes/asistida.png width=35 height=35 /></a></td>
+            </center> 
+            
+           <td><center><a href=plantilla-tablas.php?id_ac=".$fila[0]."&id_asam=".$fila[0]."><img src=../imagenes/noasistida.png width=35 height=35 /></center></td>
 	
 		      <td><center>";
 		      ?>

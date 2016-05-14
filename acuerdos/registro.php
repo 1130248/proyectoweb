@@ -1,8 +1,6 @@
 <br>
-<br>
-<br>
+
 <center><img class="img-titulo" src="../Imagenes/acuerdos.png"></center>
-<br>
 
 
 <!-- Modal -->
@@ -48,8 +46,11 @@ $detalles="";
 }
 
 ?>
-    <div >
-        
+
+<a href="../graficas/plantilla-grafica-acuerdos.php"><img class="grafico" src="../imagenes/grafica.png"/></a> 
+ 
+<a href="../asambleas/plantilla.php"><img class="regresoa" src="../imagenes/regresoasam.png" /></a>
+
             <center>
 
             <!-- formulario de busquedas -->
@@ -58,31 +59,29 @@ $detalles="";
             
             <div class="inner-wrap">
                 <label>Detalle<input type="text" name="detalle" value="<?php echo $detalles?>" required=""></label>
-            </div>
-<center><button value="1" name="env" class="boton"><span>Buscar</span></button></center>
-</form></div>
+            
+<button value="1" name="env" class="boton buscar"><span>Buscar</span></button></center>
+</form></div></div>
 
 <!-- FIN del formulario de busquedas -->
 
-<a href="../graficas/plantilla-grafica-acuerdos.php"><img class="grafico" src="../imagenes/grafica.png"/></a> 
 
 
 <?php
 include_once('../conexion/config.php');
 
 
-
 $estilo="prop";
 
 echo "<center>";
-echo "<table id=".$estilo." border=0>";
+echo "<table id=".$estilo." border=1 >";
 echo "<tr>";
 
-echo "<th>Id</th>
-	  <th>Acuerdo No.</th>
-	  <th>Detalle</th>
-	  <th>Asamblea</th>
-	  <th>Opciones</th>";
+echo "<th>&nbsp;Id&nbsp;</th>
+	  <th>&nbsp;Acuerdo No.&nbsp;</th>
+	  <th>&nbsp;Detalle&nbsp;</th>
+	  <th>&nbsp;Asamblea&nbsp;</th>
+	  <th>&nbsp;Opciones&nbsp;</th>";
 echo "</tr>";
 
 
@@ -95,7 +94,7 @@ $tabla = $tablas->acuerdos();
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
 /*$id=$_GET["id_asam"];*/
-
+$mysqli->set_charset("utf8");
 
 if (isset($_GET['id_ac'])){
 	$id_asamblea=$_GET['id_ac'];
@@ -104,27 +103,34 @@ if (isset($_GET['id_ac'])){
 
 $consulta = "SELECT * FROM asambleas where id_asamblea=$id_asamblea";
 $resultado1 = $mysqli->query($consulta);
+
+
 $fila1 = $resultado1->fetch_row();
 
 $s="";
 $id=$fila1[0];
  //echo $consulta;
 
+$mysqli->set_charset("utf8");
 $consulta = "SELECT * FROM acuerdos where id_asamblea=$id_asamblea";
 $resultado = $mysqli->query($consulta);
 
+
 }else{
+$mysqli->set_charset("utf8");    
 $consulta = "SELECT * FROM acuerdos";
 $resultado = $mysqli->query($consulta);
+
 
 
 }
 
  if (isset($_GET['id_ac'])){?>
 
-
+<br>
+<br>
 <center>
-<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="<?php echo $id; ?>"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="<?php echo $id; ?>"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 5%;"><span>Agregar</span></button></a></center>
 
 
 <?php
@@ -134,7 +140,7 @@ $resultado = $mysqli->query($consulta);
 <br>
 <center>
 
-<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
+<a data-toggle="modal" data-target="#exampleModal" data-whatever="0" data-whatever2="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 5%;"><span>Agregar</span></button></a></center>
 <?php
 		      }
 ?>

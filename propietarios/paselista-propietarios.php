@@ -2,10 +2,13 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<a href="../asambleas/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a>
 <center><img class="img-titulo" src="../Imagenes/asambleas.png"></center>
-<br>
-<br>
-<br>
 
 
 <?php
@@ -28,6 +31,7 @@ echo "</tr>";
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
 
 $consulta = "SELECT * FROM propietarios";
 $resultado = $mysqli->query($consulta);
@@ -40,6 +44,7 @@ echo "<form method=\"post\"action=\"../asambleas/guardarasistencias.php?asamblea
 		      <td>".$fila[1]."</td>
 		      <td>".$fila[2]."</td>
 		      <td>"; 
+		      $mysqli->set_charset("utf8");
     $consulta2="SELECT asambleas.fecha_asamblea from asambleas WHERE asambleas.id_asamblea=$id";
     $resultado2=$mysqli->query($consulta2);
     $fila2=$resultado2->fetch_row(); 
@@ -60,21 +65,10 @@ echo "<form method=\"post\"action=\"../asambleas/guardarasistencias.php?asamblea
 
 	}
 echo "</table>";
-
-echo "<br>";
-
 ?>
 
 <br>
 <br>
-<center><button type="submit" class="boton" style="margin-bottom: 10%;"><span>Guardar</span></button></center>
-
-</form>
-<br>
-<br>
-
-
-<button type="submit" class="boton" style="margin-bottom: 30%;"><span>Guardar</span></button>
-
+<center><button type="submit" class="boton" style="margin-bottom: 5%;"><span>Guardar</span></button></center>
 </form>
 

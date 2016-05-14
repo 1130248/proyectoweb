@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<Meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
 <link  type="text/css" rel="stylesheet "href="stylesheet.css">
 	<title>Ruta 23</title>
 </head>

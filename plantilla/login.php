@@ -2,22 +2,21 @@
 <br>
 <br>
 <br>
-<fieldset>
 
-<?php if(isset($_GET["error"])) echo "<a href=\"Ruta23.php\"> E r r o r       Regresar </a> "
-?>
+	<link  type="text/css" rel="stylesheet "href="../css/stylesheet.css">
+	<link  type="text/css" rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link  rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+
+
+
 	<legend id="titulo">Ingrese Usuario y Contraseña</legend>
-<img id="combi" src="../imagenes/combi2.png">
+<img id="combi2" src="../imagenes/combi2.png">
 			
 
 	
 	<form name="entrar" method="post" action="../conexion/valida.php">
 
-<?php
-
-if (isset($_GET["nosession"])) echo "tu usuario y contraseña son incorrectos";
-
-?>		
+	
 		<div id="entrada">
 				<div id="us"><label id="usuario">Usuario</label>
 				<br>
@@ -33,8 +32,6 @@ if (isset($_GET["nosession"])) echo "tu usuario y contraseña son incorrectos";
 		<br>
 		<br>
 		<br>
-
-	</fieldset>
 	<br>
 	<br>
 

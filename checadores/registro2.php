@@ -12,7 +12,7 @@ public function checadores(){
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
-
+ $mysqli->set_charset("utf8");
 $consulta = "SELECT * FROM checadores $this->nombre";
 $resultado = $mysqli->query($consulta);
 

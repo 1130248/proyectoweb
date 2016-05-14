@@ -84,15 +84,15 @@ $insertando->borra();
 		        <label>Salida:   <input type="time" name="salida" value="<?php echo $hora_salida?>" required=""></label>
 		       
 		        <label>Dia descanso: <select require="" name="descanso">
-				<option  value=""  >Selecciona </option>
+					<option  value=""  disabled selected>Selecciona </option>
 
-				<option  value="domingo" name="domingo">Domingo </option>
-				<option  value="lunes"  name="lunes">Lunes </option>
-				<option  value="martes"  name="martes">Martes </option>
-				<option  value="miercoles" name="miercoles" >Miercoles </option>
-				<option  value="jueves" name="jueves" >Jueves </option>
-				<option  value="viernes" name="viernes" >Viernes </option>
-				<option  value="sabado" name="sabado" >Sábado </option>
+				<option  value="domingo" name="domingo" <?php if ($ddescanso =="Domingo" ){ echo "selected";} 	?>>Domingo </option>
+				<option  value="lunes"  name="lunes" <?php if ($ddescanso =="Lunes" ){ echo "selected";} 	?>>Lunes </option>
+				<option  value="martes"  name="martes" <?php if ($ddescanso =="Martes" ){ echo "selected";} 	?>>Martes </option>
+				<option  value="miercoles" name="miercoles" <?php if ($ddescanso =="Miercoles" ){ echo "selected";} 	?>>Miercoles </option>
+				<option  value="jueves" name="jueves" <?php if ($ddescanso =="Jueves" ){ echo "selected";} 	?>>Jueves </option>
+				<option  value="viernes" name="viernes" <?php if ($ddescanso =="Viernes" ){ echo "selected";} 	?>>Viernes </option>
+				<option  value="sabado" name="sabado" <?php if ($ddescanso =="Sabado" ){ echo "selected";} 	?>>Sábado </option>
 
 			</select>
 		</label>
@@ -100,10 +100,8 @@ $insertando->borra();
 		        <input type="hidden" name="id_checador<?php echo $s;?>" value="<?php echo  $id_checador;?>">
 		       
 		    </div>
-		    
 		   <br>
 		   <br>
-		   
 	<button value="1"  name="env" class="boton"><span>Aceptar</span></button>
 			
 		</form>

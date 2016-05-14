@@ -1,12 +1,11 @@
 <br>
-<br>
-<br>
+
 <center><img class="img-titulo" src="../Imagenes/unidades.png"></center>
-<br>
-<br>
-<br>
+
+
 
 <!-- Modal -->
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="memberModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -29,27 +28,40 @@
 <?php
 include_once('../conexion/config.php');
 
-//$mysqli->set_charset("utf8");
+
 $estilo="prop";
 
-echo "<table id=".$estilo." border=0>";
+echo "<table id=".$estilo." border=1>";
 echo "<tr>";
 
-echo "<th> Placa </th>
-	  <th> Numero </th>
-	  <th> Matrícula </th>
-	  <th> Modelo </th>
-	  <th> Marca </th>
-	  <th> Póliza/Venc </th>
-	  <th> Propietario </th>
-	  <th> Chofer </th>
-	  <th> Opciones </th>";
+echo "<th>&nbsp; Placa &nbsp;</th>
+	  <th>&nbsp; Numero &nbsp;</th>
+	  <th>&nbsp; Matrícula &nbsp;</th>
+	  <th>&nbsp; Modelo &nbsp;</th>
+	  <th>&nbsp; Marca &nbsp;</th>
+	  <th>&nbsp; Póliza/Venc &nbsp;</th>
+	  <th>&nbsp; Propietario &nbsp;</th>
+      <th>&nbsp; Apellidos &nbsp;</th>
+	  <th>&nbsp; Chofer &nbsp;</th>
+      <th>&nbsp; Apellidos &nbsp;</th>
+	  <th>&nbsp; Opciones &nbsp;</th>";
 echo "</tr>";
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
 
-$consulta = "SELECT * FROM unidades";
+$consulta = "SELECT unidades.placa_unidad, unidades.numero_unidad,
+unidades.matricula_unidad,
+unidades.modelo_unidad,
+unidades.marca_unidad,
+unidades.vencseguro_unidad,
+propietarios.nombre_propietario,
+propietarios.apellido_propietario,
+choferes.nombre_chofer,
+choferes.apellido_chofer
+FROM unidades, choferes, propietarios where unidades.id_propietario=propietarios.id_propietario
+and unidades.id_chofer=choferes.id_chofer group by placa_unidad";
 $resultado = $mysqli->query($consulta);
 
 	while ($fila = $resultado->fetch_row()) {
@@ -64,6 +76,8 @@ $resultado = $mysqli->query($consulta);
 		      <td>".$fila[5]."</td>
 		      <td>".$fila[6]."</td>
 		      <td>".$fila[7]."</td>
+              <td>".$fila[8]."</td>
+              <td>".$fila[9]."</td>
 		      <td><center>";
 		      ?>
 
@@ -78,15 +92,10 @@ $resultado = $mysqli->query($consulta);
 
 	}
 echo "</table>";
-
-echo "<br>";
-
 ?>
 <br>
 <br>
-<br>
-<center><a data-toggle="modal" data-target="#exampleModal" data-whatever="0"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 10%;"><span>Agregar</span></button></a></center>
-<br>
+<center><a data-toggle="modal" data-target="#exampleModal" data-whatever="-1-2-3-4-"><button type="submit" class="boton" data-target="#exampleModal" style="margin-bottom: 5%;"><span>Agregar</span></button></a></center>
 
 
 <!-- jQuery Version 1.11.0 -->

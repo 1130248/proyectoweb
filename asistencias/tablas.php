@@ -1,8 +1,13 @@
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <center><img class="img-titulo" src="../Imagenes/asamasistencia.png"></center>
-<br>
+
 
 <a href="../asistencias/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a>
 
@@ -13,16 +18,16 @@ include_once('../conexion/config.php');
 
 $estilo="prop";
 
-echo "<table id=".$estilo." border=0>";
+echo "<table id=".$estilo." border=1>";
 echo "<tr>";
 
 
 echo "
-<th>Id Asamblea</th>
-<th>Lugar</th>
-<th>Fecha</th>
-<th>Acuerdos</th>
-<th>Registro</th>";
+<th>&nbsp;Id &nbsp;</th>
+<th>&nbsp; Lugar&nbsp; </th>
+<th>&nbsp;Fecha&nbsp;</th>
+<th>&nbsp;Acuerdos&nbsp;</th>
+<th>&nbsp;Registro&nbsp;</th>";
 
 echo "</tr>";
 
@@ -51,7 +56,7 @@ if (isset($_GET['id_ac'])){
 		}
 		$asambleas=$asambleas."0";
 
-
+$mysqli->set_charset("utf8");
 		$consulta = "SELECT  asambleas.id_asamblea, asambleas.lugar_asamblea, asambleas.fecha_asamblea FROM asistencias, propietarios, asambleas where asistencias.id_propietario=propietarios.id_propietario  and asambleas.id_asamblea=asistencias.id_asamblea and asistencias.id_asamblea NOT IN($asambleas) GROUP BY id_asamblea";
 
 		$resultado1 = $mysqli->query($consulta);
@@ -94,12 +99,4 @@ echo "</table>";
 echo "<br>";
 
 ?>
-
-<br>
-<br>
-<br>
-<br>
-
-
-<a href="plantilla-actualizar.php"><button type="submit" class="boton" style="margin-bottom: 30%;"><span>Agregar</span></button></a>
 

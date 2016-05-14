@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION["id"]==0)
+if($_SESSION["id"]!='')
 {
 include("../plantilla/encabezado2.php");
 

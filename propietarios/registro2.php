@@ -12,6 +12,7 @@ public function propietarios(){
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
+$mysqli->set_charset("utf8");
 
 $consulta = "SELECT * FROM propietarios $this->nombre";
 $resultado = $mysqli->query($consulta);
@@ -30,6 +31,7 @@ $resultado = $mysqli->query($consulta);
 
 
 		      <td>"; 
+		     $mysqli->set_charset("utf8"); 
 $consulta2 = "SELECT unidades.numero_unidad FROM unidades WHERE unidades.id_propietario=".$fila[0]."";
 $resultado2 = $mysqli->query($consulta2);
 	while ($fila2 = $resultado2->fetch_row()) { 

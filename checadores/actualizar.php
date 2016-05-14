@@ -44,7 +44,7 @@ echo $unidades;*/
 
 		$conexionSacadatos = new Conexion();
     	$linkSacadatos = $conexionSacadatos->con();
-
+    	$linkSacadatos->set_charset("utf8");
 
 		$consulta = "UPDATE checadores SET nombre_checador='$this->nombre', apellido_checador='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo',estacion='$this->estacion', hora_entrada='$this->entrada', hora_salida='$this->salida',ddescanso='$this->descanso'	where id_checador=$this->id_checador";
 
@@ -66,7 +66,7 @@ echo $unidades;*/
 
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
-
+   		$linkSacadatos->set_charset("utf8");
 
 		$consulta = "INSERT into checadores values('', '$this->nombre', '$this->apellido', '$this->direccion', '$this->telefono', '$this->correo', '$this->estacion', '$this->entrada', '$this->salida', '$this->descanso') ";
 

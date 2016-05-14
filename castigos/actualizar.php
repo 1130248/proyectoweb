@@ -35,7 +35,7 @@ $this->id_checador=$id_checador;
 
 	$conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();	
-
+    $linkSacadatos->set_charset("utf8");
 /*if(isset($_POST["id_castigo"])){
 	$id_cas=$_POST["id_castigo"];*/
 
@@ -60,7 +60,8 @@ $this->id_checador=$id_checador;
 
 	    $conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
-
+   		$linkSacadatos->set_charset("utf8");
+   		
 		$consulta = "INSERT into castigos values('', '$this->motivo', '$this->lugar', '$this->fecha', '$this->dias', '$this->inicio', '$this->termina', '$this->id_chofer', '$this->id_checador') ";
 
 			if ($linkSacadatos->query($consulta)){

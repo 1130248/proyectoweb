@@ -38,8 +38,8 @@ $fecha="";
 $dias="";
 $inicio="";
 $termina="";
-$id_chofer="";
-$id_checador="";
+$chofer="";
+$checador="";
 
 }}
 
@@ -86,7 +86,7 @@ $resulta= $mysqli->query($consulta);
 <center>
 <div class="form-registro_mas">
 		<br>
-		<h1>Modificar datos</h1>
+		<h1>*>>>> Datos <<<<*</h1>
 		<br>
 		
 		<form method="post" action="formulario.php">
@@ -96,26 +96,28 @@ $resulta= $mysqli->query($consulta);
 		        <label>Lugar:  <input type="text" name="lugar" value="<?php echo  $lugar?>" require=""></label>
 		        <label>Fecha: <input type="date" name="fecha" value="<?php echo $fecha?>" required=""></label>
 		        <label>No. días:  <input type="number" name="dias" value="<?php echo $dias?>" required=""></label>
-		        <label>Fecha inicio:   <input type="date" name="inicio" value="<?php echo $inicio?>" required=""></label>
-		        <label>Fecha termina: <input type="date" name="termina" value="<?php echo $termina?>" required=""></label>
-				<label>Chofer:   <select require="" name="id_chofer">    
+		        <label>F. Inicio:   <input type="date" name="inicio" value="<?php echo $inicio?>" required=""></label>
+		        <label>F. Termina: <input type="date" name="termina" value="<?php echo $termina?>" required=""></label>
+				<label>Chofer:   <select require="" name="id_chofer">  
+					<option  value=""  disabled selected>Selecciona </option>  
     <?php    
     while ( $row = $result->fetch_array() )    
     { ?>
     
-        <option value=" <?php echo $row['id_chofer'] ?> " >
+        <option value=" <?php echo $row['id_chofer'] ?> " <?php if ($chofer == $row['id_chofer'] ){ echo "selected";} 	?>>
         <?php echo $row['nombre_chofer']; ?>
         </option>
         
         <?php } ?>        </select></label>
 
 		        
-		        <label>Checador:  <select require="" name="id_checador">    
+		        <label>Checador:  <select require="" name="id_checador">  
+		        	<option  value=""  disabled selected>Selecciona </option>  
     <?php    
     while ( $row = $resulta->fetch_array() )    
     { ?>
     
-        <option value=" <?php echo $row['id_checador'] ?> " >
+        <option value=" <?php echo $row['id_checador'] ?> " <?php if ($checador == $row['id_checador'] ){ echo "selected";} 	?>>
         <?php echo $row['nombre_checador']; ?>
         </option>
         
@@ -124,11 +126,9 @@ $resulta= $mysqli->query($consulta);
 		        <input type="hidden" name="id_castigo<?php echo $s;?>" value="<?php echo  $id_castigo;?>">
 		       
 		    </div>
-		    <br>
-		     <br>
-		      <br>
-		       <br>
 		  
+		  <br>
+		  <br>
 		   
 	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
 			

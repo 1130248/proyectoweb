@@ -36,7 +36,7 @@ echo $unidades;*/
 
     $conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();
-
+    $linkSacadatos->set_charset("utf8");
 		$consulta = "UPDATE asambleas SET lugar_asamblea='$this->lugar', fecha_asamblea='$this->fecha'  where id_asamblea=$this->id_asamblea";
 
 			if ($linkSacadatos->query($consulta)){
@@ -56,7 +56,8 @@ echo $unidades;*/
 
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
-
+   		$linkSacadatos->set_charset("utf8");
+   		
 		$consulta = "INSERT into asambleas values('', '$this->lugar', '$this->fecha')";
 
 		//echo $consulta;
@@ -76,7 +77,7 @@ echo $unidades;*/
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
 
-	$consulta = "DELETE from asambleas where id_asamblea=$this->id_asamblea ";
+	$consulta = "DELETE from asambleas where id_asamblea=$this->id_asamblea";
 
 			if ($linkSacadatos->query($consulta)){
 				header("Location: plantilla.php");

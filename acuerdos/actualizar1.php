@@ -30,7 +30,7 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 
     $conexionSacadatos = new Conexion();
     $linkSacadatos = $conexionSacadatos->con();
-
+  	$linkSacadatos->set_charset("utf8");
 
 		$consulta = "UPDATE acuerdos SET num_acuerdo='$this->acuerdo', detalle_acuerdo='$this->detalle', id_asamblea=$this->id_asamblea where id_acuerdo=$this->id_acuerdo";
 //echo $consulta;
@@ -50,6 +50,7 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
+   		$linkSacadatos->set_charset("utf8");
 
 		$consulta = "INSERT into acuerdos values('', '$this->acuerdo', '$this->detalle', '$this->id_asamblea') ";
 	//	echo $consulta;	
@@ -65,6 +66,7 @@ public function borra(){
 
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
+   		
 
 	$consulta = "DELETE from acuerdos where id_acuerdo='$this->id_acuerdo'";
 //echo $consulta;

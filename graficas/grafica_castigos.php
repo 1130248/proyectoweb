@@ -1,11 +1,13 @@
 
 <br>
 <br>
+<br><br>
+<br>
+<br>
+<br>
 <br>
 <center><img class="img-titulo" src="../Imagenes/castigosgraf.png"></center>
-<br>
-<br>
-<br>
+
 
 <a href="../castigos/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a>
 
@@ -56,8 +58,4 @@ echo "\n];";
         </script>
 
         <div id="chartdiv" style="width: 100%; height: 400px;"></div>
-       <br>
-        <br>
-        <br>
-        <br>
-        <br>
+       

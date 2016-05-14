@@ -46,7 +46,7 @@ class validacion {
 
 			session_start();
 			$_SESSION["id"]=$fila[0];
-			header("Location:../plantilla/plantilla-botones-menu.php?valido=$valido");
+			header("Location:../choferes/plantilla.php?valido=$valido");
 //echo "Bienvenido eres ". $usuario." y tu contraseña es ".$contrasena."!!!";
 
 		}

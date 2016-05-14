@@ -79,9 +79,9 @@ $insertando->borra();
 
 		 
 		        <label> Licencia: <select require="" name="licencia">
-				<option  value=""  >Selecciona </option>
-				<option  value="Chofer"  >Chofer </option>
-				<option  value="Operador"  >Operador </option>
+				<option  value=""  disabled selected>Selecciona </option>
+				<option  value="Chofer"  <?php if ($licencia_tipo =="Chofer" ){ echo "selected";} 	?>>Chofer </option>
+				<option  value="Operador"  <?php if ($licencia_tipo =="Operador" ){ echo "selected";} 	?>>Operador </option>
 			</select>
 		</label>
 		        <label>Vencimiento: <input type="date" name="vencimiento" value="<?php echo $licencia_venc?>" required=""></label>

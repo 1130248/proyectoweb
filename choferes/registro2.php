@@ -11,7 +11,7 @@ public function choferes(){
 
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
-
+ $mysqli->set_charset("utf8");
 $consulta = "SELECT * FROM choferes $this->nombre";
 $resultado = $mysqli->query($consulta);
 

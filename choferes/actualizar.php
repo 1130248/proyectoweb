@@ -41,6 +41,7 @@ function __construct($id_chofer,$nombre,$apellido,$direccion,$telefono,$correo,$
 
    		 $conexionSacadatos = new Conexion();
     	 $linkSacadatos = $conexionSacadatos->con();
+    	  $linkSacadatos->set_charset("utf8");
 
 		$consulta = "UPDATE choferes SET nombre_chofer='$this->nombre', apellido_chofer='$this->apellido', direccion='$this->direccion', telefono='$this->telefono',correo='$this->correo', licencia_tipo='$this->licencia', licencia_venc='$this->vencimiento' where id_chofer=$this->id_chofer";
 
@@ -62,6 +63,7 @@ public function inserta(){
 
 		$conexionSacadatos = new Conexion();
    		$linkSacadatos = $conexionSacadatos->con();
+   		$linkSacadatos->set_charset("utf8");
 
 		$consulta = "INSERT into choferes values('', '$this->nombre', '$this->apellido', '$this->direccion', '$this->telefono', '$this->correo', '$this->licencia', '$this->vencimiento') ";
 

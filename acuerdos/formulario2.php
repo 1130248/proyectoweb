@@ -3,7 +3,7 @@
 include_once('../conexion/config.php');
 $conexionSacadatos = new Conexion();
 $mysqli = $conexionSacadatos->con();
-
+$mysqli->set_charset("utf8");
 
 if (isset($_GET['id_ac'])){
 
@@ -174,5 +174,7 @@ include_once('actualizar1.php');
 
 				</form></center>
 			</div>
+			<br>
+			<br>
 			<br>
 			<br>

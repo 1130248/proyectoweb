@@ -8,7 +8,7 @@ $mysqli = $conexionSacadatos->con();
 if (isset($_GET['placa'])){
 	$placa_unidad=$_GET['placa'];
 
-if ($placa_unidad>0) {
+if ($placa_unidad!="-1-2-3-4-") {
 
 	$mysqli->set_charset("utf8");
 
@@ -16,6 +16,7 @@ $consulta = "SELECT * FROM unidades where placa_unidad='$placa_unidad'";
 
 $resultado = $mysqli->query($consulta);
 $fila = $resultado->fetch_row();
+$mysqli->set_charset("utf8");
 
 $s="";
 $id=$fila[0];
@@ -106,7 +107,7 @@ $resulta= $mysqli->query($consulta);
 				<?PHP
 				while ($fila = $result->fetch_row()){
 					
-					echo "<option value='".$fila['0']."'> ".$fila['1']."</option>";
+					echo "<option value='".$fila['0']."'";?> <?php if ($id_propietario ==$fila['0'] ){ echo "selected";} 	?>><?php echo $fila['1']."</option>";
 				}
 				?>
 			</select>
@@ -117,7 +118,7 @@ $resulta= $mysqli->query($consulta);
 				<?PHP
 				while ($fila = $resulta->fetch_row()){
 					
-					echo "<option value='".$fila['0']."'> ".$fila['1']."</option>";
+					echo "<option value='".$fila['0']."'";?> <?php if ($id_chofer ==$fila['0'] ){ echo "selected";} 	?>><?php echo $fila['1']."</option>";
 				}
 				?>
 			</select>
@@ -126,11 +127,7 @@ $resulta= $mysqli->query($consulta);
 		       
 		    </div>
 		    <br>
-		    <br>
-		    <br>
-		    <br>
 		    
-		   
 	<center><button value="1"  name="env" class="boton"><span>Aceptar</span></button></center>
 			
 		</form>
