@@ -1,3 +1,15 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
+ 
+ 
+  
+    * variables publicas
+    * @static id_asamblea, lugar, fecha.
+
+ */
+
 <?php
 
 // CREANDO MI CONEXION
@@ -12,6 +24,12 @@ class NuevoRegistro extends Conexion{
 public $id_asamblea;
 public $lugar;
 public $fecha;
+
+/**
+    * funcion constructor
+
+    id_asamblea, lugar, fecha. 
+    */
 
 
 function __construct($id_asamblea,$lugar,$fecha){
@@ -32,6 +50,11 @@ echo $unidades;*/
 /*if(isset($_POST["id_asamblea"])){
 	$id_asam=$_POST["id_asamblea"];*/
 
+/**
+    * funcion actualizar asambleas
+    * @static id_asamblea, lugar, fecha
+    */
+
 	public function actualiza(){
 
     $conexionSacadatos = new Conexion();
@@ -48,6 +71,10 @@ echo $unidades;*/
 				}
 					}
 
+/**
+    * funcion insertar asambleas
+    * @static id_asamblea, lugar, fecha
+    */
 
 	public function inserta(){
 
@@ -71,6 +98,11 @@ echo $unidades;*/
 
 /*}elseif (isset($_GET["borrar"])){
 	$id_asam=$_GET["borrar"];*/
+
+	/**
+    * funcion borrar asambleas
+    * @static id_asamblea.
+    */
 
 	public function borra(){
 

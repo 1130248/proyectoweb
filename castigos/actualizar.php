@@ -1,3 +1,15 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
+ 
+ 
+  
+    * variables publicas
+    * @static id_castigo, motivo, lugar, fecha, días, inicio, termina, id_chofer, id_checador.
+
+ */
+
 <?php
 
 // CREANDO MI CONEXION
@@ -17,6 +29,13 @@ public $termina;
 public $id_chofer;
 public $id_checador;
 
+	/**
+    * funcion constructor
+
+    id_castigo, motivo, lugar, fecha, días, inicio, termina, id_chofer, id_checador. 
+    */
+
+
 function __construct($id_castigo, $motivo, $lugar, $fecha, $dias, $inicio, $termina, $id_chofer, $id_checador){
 
 $this->id_castigo=$id_castigo;
@@ -30,6 +49,11 @@ $this->id_chofer=$id_chofer;
 $this->id_checador=$id_checador;
 }
 
+
+	/**
+    * funcion actualizar castigos
+    * @static id_castigo, motivo, lugar, fecha, días, inicio, termina, id_chofer, id_checador. 
+    */
 
 	public function actualiza(){
 
@@ -55,6 +79,11 @@ $this->id_checador=$id_checador;
 /*elseif (isset($_POST["motivo"])){
 	$motivo=$_POST["motivo"];*/
 
+	/**
+    * funcion insertar castigos
+    * @static id_castigo, motivo, lugar, fecha, días, inicio, termina, id_chofer, id_checador. 
+    */
+
 	 public function inserta(){
 
 
@@ -74,6 +103,12 @@ $this->id_checador=$id_checador;
 
 /*}elseif (isset($_GET["borrar"])){
 	$id_cas=$_GET["borrar"];*/
+
+	/**
+    * funcion borrar castigos
+    * @static id_castigo. 
+    */
+
 	public function borra(){
 
 		$conexionSacadatos = new Conexion();

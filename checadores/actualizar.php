@@ -1,3 +1,15 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
+ 
+ 
+  
+    * variables publicas
+    * @static id_checador, nombre, apellido, direccion, telefono, correo, estacion, entrada, salida, descanso.
+
+ */
+
 <?php
 
 // CREANDO MI CONEXION
@@ -16,6 +28,13 @@ public $estacion;
 public $entrada;
 public $salida;
 public $descanso;
+
+/**
+    * funcion constructor
+
+    id_checador, nombre, apellido, direccion, telefono, correo, estacion, entrada, salida, descanso.
+    */
+
 
 function __construct($id_checador,$nombre,$apellido,$direccion,$telefono,$correo,$estacion,$entrada,$salida,$descanso){
 
@@ -40,6 +59,11 @@ echo $unidades;*/
 /*if(isset($_POST["id_checador"])){
 	$id_checa=$_POST["id_checador"];*/
 
+	/**
+    * funcion actualizar checadores
+    * @static id_checador, nombre, apellido, direccion, telefono, correo, estacion, entrada, salida, descanso.
+    */
+
 	public function actualiza(){
 
 		$conexionSacadatos = new Conexion();
@@ -62,6 +86,12 @@ echo $unidades;*/
 /*elseif (isset($_POST["nombre"])){
 	$nombre=$_POST["nombre"];*/
 
+
+	/**
+    * funcion insertar checadores
+    * @static id_checador, nombre, apellido, direccion, telefono, correo, estacion, entrada, salida, descanso.
+    */
+
 	public function inserta(){
 
 		$conexionSacadatos = new Conexion();
@@ -81,6 +111,11 @@ echo $unidades;*/
 
 /*}elseif (isset($_GET["borrar"])){
 	$id_checa=$_GET["borrar"];*/
+
+	/**
+    * funcion borrar checadores
+    * @static id_checador.
+    */
 
 	public function borra(){
 

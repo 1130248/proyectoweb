@@ -1,3 +1,16 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
+ 
+ 
+  
+    * variables publicas
+    * @static id_chofer, nombre, apellido, direccion, telefono, correo, licencia, vencimiento.
+
+ */
+
+
 <?php
 
 // CREANDO MI CONEXION
@@ -21,6 +34,13 @@ echo $telefono;
 echo $correo;
 echo $unidades;*/
 
+
+/**
+    * funcion constructor
+
+    id_chofer, nombre, apellido, direccion, telefono, correo, licencia, vencimiento. 
+    */
+
 function __construct($id_chofer,$nombre,$apellido,$direccion,$telefono,$correo,$licencia,$vencimiento){
 
 	$this->id_chofer=$id_chofer;
@@ -36,6 +56,11 @@ function __construct($id_chofer,$nombre,$apellido,$direccion,$telefono,$correo,$
 
 	/*if(isset($_POST["id_chofer"])){
 		$id_chof=$_POST["id_chofer"];*/
+
+		/**
+    * funcion actualizar choferes
+    * @static id_chofer, nombre, apellido, direccion, telefono, correo, licencia, vencimiento.
+    */
 
 		public function actualiza(){
 
@@ -58,6 +83,10 @@ function __construct($id_chofer,$nombre,$apellido,$direccion,$telefono,$correo,$
 	/*elseif (isset($_POST["nombre"])){
 		$nombre=$_POST["nombre"];*/
 
+		/**
+    * funcion insertar choferes
+    * @static id_chofer, nombre, apellido, direccion, telefono, correo, licencia, vencimiento.
+    */
 
 public function inserta(){
 
@@ -78,6 +107,11 @@ public function inserta(){
 
 	/*}elseif (isset($_GET["borrar"])){
 		$id_chof=$_GET["borrar"];*/
+/**
+    * funcion borrar choferes
+    * @static id_chofer.
+    */
+
 
 	public function borra(){
 

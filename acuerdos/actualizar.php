@@ -1,9 +1,15 @@
-/ **
- * Demostración de etiquetas
- *  @author  Yanet Delgado Vergara
- *  @version  1.0 versión de esta etiqueta se analiza
- * /
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
  
+ 
+  
+    * variables publicas
+    * @static id_acuerdo, acuerdo, detalle, id_asamblea.
+
+ */
+
 <?php
 
 // CREANDO MI CONEXION
@@ -19,7 +25,13 @@ public $id_asamblea;
 
 /*echo $acuerdo;
 echo $detalle;
-echo $id_asamblea;*/
+echo $id_asamblea;
+
+/**
+    * funcion constructor
+
+    id_acuerdo, acuerdo, detalle, id_asamblea. 
+    */
 
 function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 
@@ -31,6 +43,11 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 
 /*if(isset($_POST["id_acuerdo"])){
 	$id_ac=$_POST["id_acuerdo"];*/
+
+	/**
+    * funcion actualizar acuerdos
+    * @static id_acuerdo, acuerdo, detalle, id_asamblea.
+    */
 
 	public function actualiza(){
 
@@ -52,6 +69,11 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 /*elseif (isset($_POST["acuerdo"])){
 	$acuerdo=$_POST["acuerdo"];*/
 
+	/**
+    * funcion insertar acuerdos
+    * @static id_acuerdo, acuerdo, detalle, id_asamblea.
+    */
+
 	public function inserta(){
 
 		$conexionSacadatos = new Conexion();
@@ -67,6 +89,11 @@ function __construct($id_acuerdo, $acuerdo, $detalle, $id_asamblea){
 			header("Location: ../plantilla/noplantilla-principal.php");
 				}
 			}
+
+			/**
+    * funcion borrar acuerdos
+    * @static id_acuerdo.
+    */
 
 public function borra(){
 

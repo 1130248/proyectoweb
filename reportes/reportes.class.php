@@ -1,9 +1,24 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
+
+
+ */
+
+
 <?php
 
 include_once('../conexion/config.php');
 
 
 class  Tablas{
+
+/**
+    * funcion constructor
+
+   num_acuerdo, detalle_acuerdo, id_asamblea. 
+    */
 
 
 function __construct($num_acuerdo, $detalle_acuerdo, $id_asamblea)

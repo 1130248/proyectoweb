@@ -1,3 +1,10 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0
+
+ */
+
 
 <center><img class="img-titulo" src="../Imagenes/castigos.png"></center>
 

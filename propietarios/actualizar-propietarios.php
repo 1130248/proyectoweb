@@ -1,3 +1,15 @@
+/**
+ * Ruta 23
+ * @author Yanet Delgado Vergara
+ * @version 1.0 
+ 
+ 
+  
+    * variables publicas
+    * @static id, nombre, apellido, direccio, telefono, correo, unidades.
+
+ */
+
 <?php
 
 // CREANDO MI CONEXION
@@ -20,6 +32,12 @@ echo $telefono;
 echo $correo;
 echo $unidades;*/
 
+	/**
+    * funcion constructor
+
+    id, nombre, apellido, direccio, telefono, correo, unidades. 
+    */
+
 function __construct($id, $nombre, $apellido, $direccion, $telefono, $correo){
 
 	$this->id=$id;
@@ -30,6 +48,11 @@ function __construct($id, $nombre, $apellido, $direccion, $telefono, $correo){
     $this->correo=$correo;
   
 }
+
+/**
+    * funcion actualizar propietarios
+    * @static id, nombre, apellido, direccio, telefono, correo, unidades. 
+    */
 
 public function actualiza(){
 
@@ -51,6 +74,11 @@ public function actualiza(){
 				}
 }
 
+	/**
+    * funcion insertar propietarios
+    * @static id, nombre, apellido, direccio, telefono, correo, unidades. 
+    */
+
     public function inserta(){
 
 /*elseif (isset($_POST["nombre"])){
@@ -68,6 +96,12 @@ public function actualiza(){
 				header("Location: ../plantilla/noplantilla-principal.php");
 				}
 	}
+
+	/**
+    * funcion borrar propietarios
+    * @static id. 
+    */
+
 public function borra(){
 
 		$conexionSacadatos = new Conexion();
