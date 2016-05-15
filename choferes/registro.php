@@ -1,9 +1,8 @@
-/**
+<!--
  * Ruta 23
  * @author Yanet Delgado Vergara
  * @version 1.0
-
- */
+-->
 
 <br>
 <center><img class="img-titulo" src="../Imagenes/choferes.png"></center>

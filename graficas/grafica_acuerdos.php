@@ -1,10 +1,8 @@
-/**
+<!--
  * Ruta 23
  * @author Yanet Delgado Vergara
- * @version 1.0 
-
-
- */
+ * @version 1.0
+-->
 
 <a href="../acuerdos/plantilla.php"><img class="regreso" src="../imagenes/regresar.png"/></a>
 

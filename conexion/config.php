@@ -1,4 +1,4 @@
-/**
+<!--
  * Ruta 23
  * @author Yanet Delgado Vergara
  * @version 1.0 
@@ -8,7 +8,7 @@
     * variables publicas
     * @static servidor, us, contra, bd.
 
- */
+ -->
 
 <?php
 

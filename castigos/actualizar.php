@@ -1,4 +1,4 @@
-/**
+<!--
  * Ruta 23
  * @author Yanet Delgado Vergara
  * @version 1.0 
@@ -8,7 +8,7 @@
     * variables publicas
     * @static id_castigo, motivo, lugar, fecha, días, inicio, termina, id_chofer, id_checador.
 
- */
+-->
 
 <?php
 

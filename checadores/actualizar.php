@@ -1,4 +1,4 @@
-/**
+<!--
  * Ruta 23
  * @author Yanet Delgado Vergara
  * @version 1.0 
@@ -8,7 +8,7 @@
     * variables publicas
     * @static id_checador, nombre, apellido, direccion, telefono, correo, estacion, entrada, salida, descanso.
 
- */
+-->
 
 <?php
 
